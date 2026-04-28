@@ -238,24 +238,21 @@ function renderHomeFlagForm(label = "立 flag") {
           </span>
           <textarea id="goalInput" class="goal-input" maxlength="220" placeholder="例如：晚上前把第一版做出来"></textarea>
         </label>
-        <button class="primary-button wide-button" type="submit">立下这个小旗帜</button>
-        <details class="advanced-settings">
-          <summary>小设置</summary>
-          <div class="field-grid">
-            <label>
-              <span>怎么算数</span>
-              <input id="standardInput" maxlength="160" placeholder="做到你写下的这件事">
-            </label>
-            <label>
-              <span>低电量版本</span>
-              <input id="minimumInput" maxlength="160" placeholder="先做 10 分钟">
-            </label>
-            <label>
-              <span>今晚几点提醒？</span>
-              <input id="reminderInput" type="time" value="${escapeHtml(state.settings.reminderTime || DEFAULT_REMINDER)}">
-            </label>
-          </div>
-        </details>
+        <div class="quick-option-grid" aria-label="轻量设置">
+          <label class="quick-option-card">
+            <span>怎么算数</span>
+            <input id="standardInput" maxlength="160" placeholder="完成为准">
+          </label>
+          <label class="quick-option-card">
+            <span>低电量版本</span>
+            <input id="minimumInput" maxlength="160" placeholder="先做 10 分钟">
+          </label>
+          <label class="quick-option-card">
+            <span>提醒时间</span>
+            <input id="reminderInput" type="time" value="${escapeHtml(state.settings.reminderTime || DEFAULT_REMINDER)}">
+          </label>
+        </div>
+        <button class="primary-button wide-button" type="submit">立下今日约定</button>
       </form>
     </article>
   `;
@@ -331,16 +328,19 @@ function renderProgressPanel(todayFlags) {
   const doneCount = todayFlags.filter((flag) => flag.status === "done").length;
   const totalProgress = getFlagsProgress(todayFlags);
   elements.progressPanel.innerHTML = `
-    <article class="progress-hero-card">
+    <article class="progress-hero-card" style="--progress: ${totalProgress}%">
       <div>
         <span>今日记录</span>
-        <h3>${doneCount}/${todayFlags.length} 面 flag</h3>
-        <p>${doneCount === todayFlags.length ? "今天可以盖章了。" : "慢慢来，先把一面旗插稳。"}</p>
+        <h3>慢一点，也算在前进</h3>
+        <p>${doneCount === todayFlags.length ? "今天可以盖章了。" : `${doneCount}/${todayFlags.length} 面 flag 已插稳，继续把进度往前挪。`}</p>
       </div>
-      <strong>${totalProgress}%</strong>
+      <div class="progress-ring" aria-label="今日整体进度 ${totalProgress}%">
+        <strong>${totalProgress}%</strong>
+        <span>今日进度</span>
+      </div>
     </article>
-    ${renderMoodCheckin(todayFlags)}
     ${todayFlags.map(renderProgressFlagCard).join("")}
+    ${renderMoodCheckin(todayFlags)}
     ${renderCalendarDeck()}
   `;
 
@@ -401,8 +401,8 @@ function renderProgressFlagCard(flag) {
           : ""}
         ${isPending
           ? `
-            <button class="primary-button" type="button" data-action="complete-flag" data-flag-id="${escapeHtml(flag.id)}">完成了</button>
-            <button class="secondary-button" type="button" data-action="mark-missed" data-flag-id="${escapeHtml(flag.id)}">没算数</button>
+            <button class="primary-button" type="button" data-action="complete-flag" data-flag-id="${escapeHtml(flag.id)}">算数了</button>
+            <button class="secondary-button" type="button" data-action="mark-missed" data-flag-id="${escapeHtml(flag.id)}">卡住了</button>
           `
           : ""}
         ${!isPending && !isDone
@@ -411,7 +411,7 @@ function renderProgressFlagCard(flag) {
             <button class="secondary-button" type="button" data-action="reopen-flag" data-flag-id="${escapeHtml(flag.id)}">重新推进</button>
           `
           : ""}
-        <button class="ghost-button" type="button" data-action="go-share">去分享页</button>
+        <button class="ghost-button" type="button" data-action="go-share">去盖认真戳</button>
       </div>
       ${renderMissedReasonPanel(flag)}
       ${renderUndoNotice(flag.id)}
@@ -731,7 +731,7 @@ function renderSharePanel(todayFlags) {
         </div>
       </div>
       <div class="share-actions">
-        <button class="primary-button" type="button" data-action="save-share-image">保存海报</button>
+        <button class="primary-button" type="button" data-action="save-share-image">保存认真戳</button>
         <button class="secondary-button" type="button" data-action="system-share">系统分享</button>
         <button class="secondary-button" type="button" data-action="copy-share">复制嘴替</button>
       </div>

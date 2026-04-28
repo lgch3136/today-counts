@@ -2086,3 +2086,578 @@ h1 {
     font-size: 54px;
   }
 }
+
+/* v26 reference-led redesign */
+:root {
+  --paper: #fff9ee;
+  --paper-soft: #f8edda;
+  --paper-deep: #efe0c8;
+  --ink: #2b261f;
+  --muted: #817364;
+  --faint: #b8aa98;
+  --line: #e2cfaf;
+  --green: #2e7059;
+  --green-deep: #17563d;
+  --green-soft: #dcece1;
+  --gold: #d49a41;
+  --coral: #e78b66;
+  --shadow: 0 22px 58px rgba(74, 48, 25, 0.14);
+  --soft-shadow: 0 12px 28px rgba(74, 48, 25, 0.09);
+}
+
+html {
+  background: #efe3d1;
+}
+
+body {
+  background:
+    radial-gradient(circle at 88% 5%, rgba(255, 255, 255, 0.94), transparent 24%),
+    radial-gradient(circle at 8% 26%, rgba(255, 247, 229, 0.92), transparent 32%),
+    linear-gradient(135deg, rgba(46, 112, 89, 0.06) 0 1px, transparent 1px 100%),
+    repeating-linear-gradient(0deg, rgba(83, 59, 35, 0.022) 0, rgba(83, 59, 35, 0.022) 1px, transparent 1px, transparent 5px),
+    linear-gradient(180deg, #fff8ed 0%, #f0e3d1 70%, #e7d7bf 100%);
+  color: var(--ink);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body::before {
+  background:
+    radial-gradient(ellipse at 92% 18%, rgba(46, 112, 89, 0.08), transparent 30%),
+    linear-gradient(180deg, transparent, rgba(121, 92, 58, 0.04));
+}
+
+.page-atmosphere {
+  opacity: 0.78;
+  background:
+    radial-gradient(ellipse at 78% 12%, rgba(196, 218, 185, 0.22), transparent 22%),
+    linear-gradient(110deg, transparent 0 68%, rgba(255, 250, 238, 0.4) 68% 100%);
+}
+
+.app-shell {
+  width: min(100vw, 390px);
+  padding: max(16px, env(safe-area-inset-top)) 12px 18px;
+}
+
+.topbar {
+  min-height: 52px;
+  margin-bottom: 16px;
+}
+
+.brand {
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(46, 112, 89, 0.18);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(229, 242, 232, 0.88));
+  color: var(--green);
+  box-shadow:
+    0 14px 24px rgba(46, 112, 89, 0.12),
+    inset 0 0 0 6px rgba(46, 112, 89, 0.05);
+}
+
+.brand-mark svg {
+  width: 27px;
+  height: 27px;
+}
+
+.brand strong {
+  font-family: "Songti SC", "STSong", "PingFang SC", serif;
+  font-size: 19px;
+  letter-spacing: 0.02em;
+}
+
+.brand span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.icon-button {
+  width: 42px;
+  height: 42px;
+  border-color: rgba(226, 207, 175, 0.92);
+  border-radius: 12px;
+  background: rgba(255, 249, 238, 0.86);
+  color: var(--green);
+  box-shadow: var(--soft-shadow);
+}
+
+.screen-stack {
+  min-height: calc(100dvh - 152px);
+  padding-bottom: 112px;
+}
+
+.daily-scene {
+  min-height: clamp(306px, 37dvh, 354px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 251, 243, 0.12) 0%, rgba(255, 249, 238, 0.74) 58%, rgba(255, 249, 238, 0.98) 100%),
+    url("assets/share-card-bg.png") 50% 42% / cover;
+  box-shadow:
+    0 30px 70px rgba(78, 51, 27, 0.17),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.daily-scene::before {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 238, 0.04) 0%, rgba(255, 249, 238, 0.48) 55%, rgba(255, 249, 238, 0.98) 100%),
+    radial-gradient(circle at 28% 74%, rgba(255, 255, 255, 0.42), transparent 23%);
+}
+
+.daily-scene::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(46, 112, 89, 0.18), transparent);
+}
+
+.scene-copy {
+  padding: clamp(132px, 16dvh, 162px) 22px 24px;
+}
+
+.date-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  background: rgba(255, 251, 243, 0.72);
+  padding: 5px 10px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.date-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+h1,
+.flag-title,
+.share-card h3,
+.view-heading h2,
+.progress-hero-card h3 {
+  font-family: "Songti SC", "STSong", "PingFang SC", serif;
+}
+
+h1 {
+  max-width: 8.5em;
+  margin-bottom: 10px;
+  font-size: clamp(32px, 8.6vw, 41px);
+  font-weight: 900;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.scene-copy p:last-child {
+  max-width: 23em;
+  color: #6f6255;
+  font-size: 13px;
+  line-height: 1.64;
+}
+
+.streak-pill {
+  top: 128px;
+  right: 21px;
+  width: 72px;
+  height: 72px;
+  border: 2px solid rgba(183, 91, 66, 0.54);
+  background: rgba(255, 249, 238, 0.66);
+  color: #9d503f;
+  box-shadow: 0 12px 28px rgba(85, 52, 28, 0.1);
+}
+
+.streak-pill strong {
+  font-size: 22px;
+}
+
+.stack {
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.compose-sheet,
+.task-sheet,
+.quiet-state,
+.progress-hero-card,
+.mood-checkin-card,
+.calendar-card,
+.history-details,
+.low-priority-tools {
+  border: 1px solid rgba(226, 207, 175, 0.9);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(255, 247, 235, 0.9));
+  box-shadow:
+    0 18px 42px rgba(80, 52, 28, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.compose-sheet,
+.task-sheet,
+.quiet-state {
+  padding: 17px;
+}
+
+.compose-sheet::before,
+.task-sheet::before {
+  width: 50px;
+  height: 17px;
+  right: 26px;
+  border-radius: 0 0 8px 8px;
+  background: rgba(245, 203, 124, 0.76);
+}
+
+.sheet-label {
+  margin-bottom: 12px;
+  border: 1px solid rgba(46, 112, 89, 0.2);
+  border-radius: 999px;
+  background: rgba(220, 236, 225, 0.92);
+  color: var(--green);
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+label span {
+  color: #405045;
+}
+
+.goal-input {
+  min-height: 76px;
+  border-color: rgba(226, 207, 175, 0.95);
+  border-radius: 14px;
+  background:
+    linear-gradient(transparent 42px, rgba(226, 207, 175, 0.34) 43px),
+    rgba(255, 253, 248, 0.96);
+  background-size: 100% 44px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+}
+
+input,
+textarea {
+  border-radius: 12px;
+}
+
+.quick-option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.quick-option-card {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+  border: 1px solid rgba(226, 207, 175, 0.84);
+  border-radius: 13px;
+  background: rgba(255, 253, 248, 0.7);
+  padding: 9px 10px;
+}
+
+.quick-option-card span {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.quick-option-card input {
+  height: 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 0;
+}
+
+.quick-option-card input[type="time"] {
+  font-size: 12px;
+}
+
+.primary-button,
+.secondary-button,
+.ghost-button,
+.choice-button,
+.reason-button,
+.text-button,
+.mood-button,
+.calendar-nav-button,
+.calendar-date {
+  border-radius: 12px;
+}
+
+.primary-button {
+  min-height: 50px;
+  background: linear-gradient(180deg, #2f8a66, var(--green-deep));
+  border-color: rgba(23, 86, 61, 0.88);
+  box-shadow:
+    0 16px 28px rgba(46, 112, 89, 0.23),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.secondary-button,
+.ghost-button,
+.choice-button,
+.reason-button {
+  border-color: rgba(226, 207, 175, 0.9);
+  background: rgba(255, 253, 248, 0.76);
+}
+
+.flag-title {
+  font-size: clamp(25px, 6.6vw, 32px);
+  line-height: 1.16;
+}
+
+.today-summary {
+  gap: 9px;
+}
+
+.today-summary div,
+.flag-summary,
+.share-stats div,
+.selected-date-card,
+.calendar-date {
+  border-radius: 13px;
+}
+
+.today-summary div,
+.flag-summary {
+  background: rgba(255, 253, 248, 0.76);
+}
+
+.home-progress-summary {
+  border-radius: 13px;
+  background: linear-gradient(135deg, rgba(220, 236, 225, 0.84), rgba(255, 253, 248, 0.86));
+}
+
+.view-heading {
+  padding: 4px 4px 12px;
+}
+
+.view-heading p {
+  color: var(--muted);
+}
+
+.view-heading h2 {
+  font-size: 30px;
+  line-height: 1.14;
+}
+
+.progress-hero-card {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) 104px;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.progress-hero-card::before {
+  content: "";
+  position: absolute;
+  right: -22px;
+  top: -30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(220, 236, 225, 0.5);
+}
+
+.progress-hero-card > * {
+  position: relative;
+}
+
+.progress-hero-card h3 {
+  margin: 5px 0 8px;
+  font-size: 26px;
+}
+
+.progress-ring {
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, var(--paper) 0 57%, transparent 58%),
+    conic-gradient(var(--green) var(--progress), rgba(226, 207, 175, 0.52) 0);
+  box-shadow: inset 0 0 0 1px rgba(46, 112, 89, 0.08);
+  text-align: center;
+}
+
+.progress-ring strong {
+  display: block;
+  color: var(--green);
+  font-size: 25px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-ring span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.mood-checkin-card {
+  padding: 16px;
+}
+
+.mood-grid {
+  gap: 8px;
+}
+
+.mood-button {
+  background: rgba(255, 253, 248, 0.72);
+}
+
+.mood-button.is-active {
+  border-color: rgba(46, 112, 89, 0.42);
+  background: var(--green-soft);
+}
+
+.progress-meter {
+  border-radius: 13px;
+  background: linear-gradient(135deg, rgba(220, 236, 225, 0.74), rgba(255, 253, 248, 0.84));
+}
+
+.progress-track {
+  height: 10px;
+}
+
+.progress-log-card {
+  background: transparent;
+  box-shadow: none;
+}
+
+.timeline-item {
+  grid-template-columns: 54px minmax(0, 1fr) auto;
+}
+
+.calendar-card {
+  padding: 14px;
+}
+
+.calendar-toolbar strong {
+  font-family: "Songti SC", "STSong", "PingFang SC", serif;
+}
+
+.calendar-month-grid {
+  gap: 7px;
+}
+
+.calendar-date {
+  min-height: 45px;
+  border-color: transparent;
+  background: rgba(255, 253, 248, 0.56);
+}
+
+.calendar-date.is-selected {
+  background: linear-gradient(180deg, #2f8a66, var(--green-deep));
+}
+
+.share-card {
+  min-height: 632px;
+  border-radius: 16px;
+  padding: 24px 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 249, 238, 0.05), rgba(255, 249, 238, 0.72)),
+    url("assets/share-card-bg.png") center / cover;
+}
+
+.share-card::before {
+  background:
+    linear-gradient(180deg, rgba(255, 249, 238, 0.1), rgba(255, 249, 238, 0.62)),
+    radial-gradient(circle at 76% 12%, rgba(255, 255, 255, 0.34), transparent 28%);
+}
+
+.stamp-mark {
+  width: 88px;
+  height: 88px;
+  border-color: rgba(183, 91, 66, 0.7);
+  background: rgba(255, 249, 238, 0.28);
+}
+
+.share-card h3 {
+  max-width: 8em;
+  margin-top: 122px;
+  font-size: clamp(34px, 8.6vw, 45px);
+  line-height: 1.12;
+}
+
+.share-stats {
+  gap: 8px;
+}
+
+.share-stats div {
+  background: rgba(255, 253, 248, 0.78);
+}
+
+.share-actions {
+  gap: 8px;
+}
+
+.bottom-dock {
+  bottom: 14px;
+  border-radius: 16px;
+  background: rgba(255, 250, 240, 0.88);
+  padding: 7px;
+}
+
+.dock-button {
+  border-radius: 12px;
+}
+
+.dock-button.is-active {
+  background: linear-gradient(180deg, #2f8a66, var(--green-deep));
+}
+
+.dock-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+@media (min-width: 900px) {
+  .app-shell {
+    border-radius: 34px;
+    background:
+      linear-gradient(180deg, rgba(255, 251, 243, 0.72), rgba(243, 231, 212, 0.7));
+  }
+}
+
+@media (max-width: 370px) {
+  .quick-option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-option-card {
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .progress-hero-card {
+    grid-template-columns: minmax(0, 1fr) 88px;
+  }
+
+  .progress-ring {
+    width: 84px;
+    height: 84px;
+  }
+}
