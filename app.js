@@ -10,6 +10,13 @@ const REASONS = [
   ["interrupted", "被打断"]
 ];
 
+const MOODS = [
+  ["soft", "想躺", "先保住一点点就好"],
+  ["steady", "还不错", "今天可以稳稳推进"],
+  ["stuck", "有点难", "把阻力记下来就算复盘"],
+  ["bright", "挺有劲", "可以顺手多走一格"]
+];
+
 let state = loadState();
 let reminderTimer = null;
 let activeView = getInitialView();
@@ -99,6 +106,7 @@ function normalizeFlag(flag) {
 
   return {
     ...flag,
+    mood: flag.mood || "",
     progress: clampProgress(progress),
     progressLog: Array.isArray(flag.progressLog) ? flag.progressLog : []
   };
@@ -176,9 +184,9 @@ function renderHomePanel(todayFlags) {
         <span>今天的主线</span>
         <strong>${getFlagsStory(todayFlags)}</strong>
       </div>
-      <p class="microcopy">默认只劝你守一个主 flag，因为拖延最怕开太多坑；但如果今天状态在线，继续加也没问题。</p>
+      <p class="microcopy">默认只劝你守一个主 flag，因为拖延最怕开太多坑；状态在线时，再多插一面也不迟。</p>
       <div class="button-row">
-        <button class="primary-button" type="button" data-action="go-progress">去推进</button>
+        <button class="primary-button" type="button" data-action="go-progress">去记录</button>
         <button class="secondary-button" type="button" data-action="add-flag">再立一个 flag</button>
         <button class="ghost-button" type="button" data-action="go-share">看复盘</button>
       </div>
@@ -225,12 +233,12 @@ function renderHomeFlagForm(label = "立 flag") {
       <form id="flagForm" class="field-grid">
         <label>
           <span class="label-row">
-            <span>今天想让哪个 flag 算数？</span>
+            <span>今天想让哪件小事算数？</span>
             <span id="goalCounter">0/220</span>
           </span>
-          <textarea id="goalInput" class="goal-input" maxlength="220" placeholder="晚上前把第一版做出来"></textarea>
+          <textarea id="goalInput" class="goal-input" maxlength="220" placeholder="例如：晚上前把第一版做出来"></textarea>
         </label>
-        <button class="primary-button wide-button" type="submit">立下这个 flag</button>
+        <button class="primary-button wide-button" type="submit">立下这个小旗帜</button>
         <details class="advanced-settings">
           <summary>小设置</summary>
           <div class="field-grid">
@@ -287,6 +295,7 @@ function bindHomeFlagForm() {
       status: "pending",
       reason: "",
       note: "",
+      mood: "",
       progress: 0,
       progressLog: [{ at: now, value: 0, label: "立 flag" }],
       createdAt: now,
@@ -307,7 +316,7 @@ function renderProgressPanel(todayFlags) {
       <article class="quiet-state">
         <div class="moon-scene" aria-hidden="true"><span></span></div>
         <h3>今天还没插旗</h3>
-        <p>先回到首页，立一个晚上能验收的 flag。</p>
+        <p>先回到首页，写一件晚上能验收的小事。</p>
         <button class="primary-button wide-button" type="button" data-action="go-home">去首页</button>
       </article>
       ${renderCalendarDeck()}
@@ -324,18 +333,47 @@ function renderProgressPanel(todayFlags) {
   elements.progressPanel.innerHTML = `
     <article class="progress-hero-card">
       <div>
-        <span>今日进度</span>
+        <span>今日记录</span>
         <h3>${doneCount}/${todayFlags.length} 面 flag</h3>
         <p>${doneCount === todayFlags.length ? "今天可以盖章了。" : "慢慢来，先把一面旗插稳。"}</p>
       </div>
       <strong>${totalProgress}%</strong>
     </article>
+    ${renderMoodCheckin(todayFlags)}
     ${todayFlags.map(renderProgressFlagCard).join("")}
     ${renderCalendarDeck()}
   `;
 
   bindProgressEvents();
   bindCalendarEvents(elements.progressPanel);
+}
+
+function renderMoodCheckin(todayFlags) {
+  const flag = getPrimaryFlag(todayFlags);
+  if (!flag) {
+    return "";
+  }
+
+  const selectedMood = flag.mood || "";
+  const helper = selectedMood
+    ? moodHelperText(selectedMood)
+    : "先选一个今天的体感，复盘会更像在和自己说话。";
+
+  return `
+    <article class="mood-checkin-card">
+      <div>
+        <span class="sheet-label">今日体感</span>
+        <p>${escapeHtml(helper)}</p>
+      </div>
+      <div class="mood-grid" role="group" aria-label="记录今日体感">
+        ${MOODS.map(([value, label]) => `
+          <button class="mood-button ${selectedMood === value ? "is-active" : ""}" type="button" data-action="set-mood" data-flag-id="${escapeHtml(flag.id)}" data-mood="${escapeHtml(value)}">
+            ${escapeHtml(label)}
+          </button>
+        `).join("")}
+      </div>
+    </article>
+  `;
 }
 
 function renderProgressFlagCard(flag) {
@@ -441,6 +479,9 @@ function bindProgressEvents() {
   elements.progressPanel.querySelectorAll('[data-action="complete-flag"]').forEach((button) => {
     button.addEventListener("click", () => completeFlag(button.dataset.flagId));
   });
+  elements.progressPanel.querySelectorAll('[data-action="set-mood"]').forEach((button) => {
+    button.addEventListener("click", () => setMood(button.dataset.flagId, button.dataset.mood));
+  });
   elements.progressPanel.querySelectorAll('[data-action="mark-missed"]').forEach((button) => {
     button.addEventListener("click", () => {
       reviewReasonFlagId = button.dataset.flagId;
@@ -484,6 +525,15 @@ function bindProgressEvents() {
   elements.progressPanel.querySelectorAll('[data-action="restore-undo"]').forEach((button) => {
     button.addEventListener("click", () => restoreUndo(button.dataset.flagId));
   });
+}
+
+function setMood(flagId, mood) {
+  if (!MOODS.some(([value]) => value === mood)) {
+    return;
+  }
+
+  updateFlag(flagId, { mood });
+  showToast("今日体感记下了");
 }
 
 function renderUndoNotice(flagId) {
@@ -654,6 +704,7 @@ function renderSharePanel(todayFlags) {
   const quote = buildShareQuote(todayFlags, completionRate);
   const recentFlags = state.flags.filter((flag) => isSameMonth(new Date(`${flag.date}T12:00:00`), currentMonth));
   const shareTitle = buildShareTitle(todayFlags);
+  const mood = getDayMood(todayFlags);
 
   elements.sharePanel.innerHTML = `
     <article class="share-card">
@@ -661,6 +712,7 @@ function renderSharePanel(todayFlags) {
       <div class="share-card-head">
         <span>${formatShortDate(getDateKey(new Date()))}</span>
         <strong>${dateStatusText(getDateCompletionStatus(getDateKey(new Date())))}</strong>
+        ${mood ? `<strong>${escapeHtml(moodLabel(mood))}</strong>` : ""}
       </div>
       <h3>${escapeHtml(shareTitle)}</h3>
       <p>${escapeHtml(quote)}</p>
@@ -672,6 +724,10 @@ function renderSharePanel(todayFlags) {
         <div>
           <span>本月认真天</span>
           <strong>${monthStats.doneDays}/${monthStats.activeDays || 0}</strong>
+        </div>
+        <div>
+          <span>今日体感</span>
+          <strong>${mood ? escapeHtml(moodLabel(mood)) : "未记"}</strong>
         </div>
       </div>
       <div class="share-actions">
@@ -1102,7 +1158,7 @@ function buildShareQuote(flags, completionRate) {
 
 function buildShareTitle(flags) {
   if (!flags.length) {
-    return "今天还没有立 flag";
+    return "今天还没插旗";
   }
   if (flags.length === 1) {
     return flags[0].goal;
@@ -1114,7 +1170,7 @@ function buildShareTitle(flags) {
 
 function buildShareText(flags, quote, completionRate) {
   if (!flags.length) {
-    return `今天还没立 flag。\n${quote}`;
+    return `今天还没插旗。\n${quote}`;
   }
 
   const lines = flags.map((flag, index) => `${index + 1}. ${flag.goal}（${getFlagProgress(flag)}%）`);
@@ -1123,8 +1179,21 @@ function buildShareText(flags, quote, completionRate) {
     ...lines,
     `整体进度：${getFlagsProgress(flags)}%`,
     `本月算数率：${completionRate}%`,
+    getDayMood(flags) ? `今日体感：${moodLabel(getDayMood(flags))}` : "",
     quote
-  ].join("\n");
+  ].filter(Boolean).join("\n");
+}
+
+function getDayMood(flags) {
+  return getPrimaryFlag(flags)?.mood || "";
+}
+
+function moodLabel(mood) {
+  return MOODS.find(([value]) => value === mood)?.[1] || "";
+}
+
+function moodHelperText(mood) {
+  return MOODS.find(([value]) => value === mood)?.[2] || "今天的体感已经记下了。";
 }
 
 function mostCommon(values) {

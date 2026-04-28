@@ -1069,7 +1069,7 @@ textarea:focus {
 
 .share-stats {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 9px;
 }
 
@@ -1103,7 +1103,7 @@ textarea:focus {
   display: block;
   margin-top: 6px;
   color: var(--green);
-  font-size: 30px;
+  font-size: clamp(20px, 6vw, 30px);
   line-height: 0.95;
   font-variant-numeric: tabular-nums;
 }
@@ -1626,6 +1626,55 @@ h1 {
   font-size: 54px;
   line-height: 0.9;
   font-variant-numeric: tabular-nums;
+}
+
+.mood-checkin-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid rgba(218, 195, 159, 0.94);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.96), rgba(244, 232, 210, 0.82));
+  box-shadow:
+    0 16px 34px rgba(85, 55, 28, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  padding: 16px;
+}
+
+.mood-checkin-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.mood-button {
+  min-height: 48px;
+  border: 1px solid rgba(218, 195, 159, 0.9);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.82);
+  color: var(--ink);
+  font-weight: 850;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.mood-button:hover {
+  border-color: rgba(23, 114, 79, 0.32);
+}
+
+.mood-button:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.mood-button.is-active {
+  border-color: rgba(23, 114, 79, 0.5);
+  background: rgba(229, 244, 230, 0.9);
+  color: var(--green);
 }
 
 .progress-meter {
