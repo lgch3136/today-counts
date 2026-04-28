@@ -1,0 +1,281 @@
+.progress-hero {
+  display: grid;
+  grid-template-columns: 1fr 176rpx;
+  gap: 26rpx;
+  align-items: center;
+  padding: 34rpx;
+  margin-bottom: 26rpx;
+}
+
+.progress-kicker {
+  color: #817364;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.progress-title {
+  display: block;
+  margin: 10rpx 0 12rpx;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 44rpx;
+  font-weight: 900;
+  line-height: 1.12;
+}
+
+.progress-ring {
+  width: 176rpx;
+  height: 176rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 18rpx solid #2e7059;
+  border-left-color: #e2cfaf;
+  border-radius: 50%;
+  background: #fff9ee;
+}
+
+.progress-ring text:first-child {
+  color: #2e7059;
+  font-size: 44rpx;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.progress-ring text:last-child {
+  margin-top: 8rpx;
+  color: #817364;
+  font-size: 20rpx;
+  font-weight: 800;
+}
+
+.flag-card,
+.mood-card,
+.calendar-card {
+  position: relative;
+  margin-bottom: 26rpx;
+  padding: 32rpx;
+}
+
+.flag-card::before {
+  content: "";
+  position: absolute;
+  top: -2rpx;
+  right: 52rpx;
+  width: 94rpx;
+  height: 32rpx;
+  border-radius: 0 0 14rpx 14rpx;
+  background: rgba(245, 203, 124, 0.76);
+}
+
+.flag-title {
+  display: block;
+  margin: 26rpx 0 12rpx;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 42rpx;
+  font-weight: 900;
+  line-height: 1.18;
+}
+
+.meter-card {
+  margin-top: 26rpx;
+  border: 2rpx solid rgba(226,207,175,.84);
+  border-radius: 26rpx;
+  background: linear-gradient(135deg, rgba(220,236,225,.74), rgba(255,253,248,.84));
+  padding: 26rpx;
+}
+
+.meter-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #817364;
+  font-size: 24rpx;
+  font-weight: 850;
+}
+
+.meter-head text:last-child {
+  color: #2e7059;
+  font-size: 58rpx;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.track {
+  height: 14rpx;
+  border-radius: 999rpx;
+  background: rgba(226,207,175,.55);
+  overflow: hidden;
+}
+
+.track view {
+  height: 100%;
+  border-radius: 999rpx;
+  background: #2e7059;
+}
+
+.reason-panel {
+  margin-top: 24rpx;
+  border-top: 2rpx dashed rgba(226,207,175,.9);
+  padding-top: 22rpx;
+}
+
+.reason-grid,
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14rpx;
+  margin-top: 18rpx;
+}
+
+.reason-button,
+.mood-button {
+  min-height: 86rpx;
+  border: 2rpx solid rgba(226,207,175,.9);
+  border-radius: 24rpx;
+  background: rgba(255,253,248,.78);
+  color: #2b261f;
+  font-size: 28rpx;
+  font-weight: 850;
+}
+
+.mood-button.is-active {
+  border-color: rgba(46,112,89,.44);
+  background: #dcece1;
+  color: #2e7059;
+}
+
+.log-card {
+  margin-top: 26rpx;
+  border-top: 2rpx dashed rgba(226,207,175,.9);
+  padding-top: 22rpx;
+}
+
+.log-row {
+  display: grid;
+  grid-template-columns: 96rpx 1fr 80rpx;
+  gap: 12rpx;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid rgba(226,207,175,.68);
+  color: #817364;
+  font-size: 23rpx;
+  font-weight: 800;
+}
+
+.log-row text:last-child {
+  color: #2e7059;
+  text-align: right;
+}
+
+.empty-moon {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto 28rpx;
+  border-radius: 30rpx;
+  background: radial-gradient(circle at 58% 46%, #edbc62 0 42rpx, transparent 44rpx), rgba(255,253,248,.72);
+}
+
+.empty-title {
+  display: block;
+  margin-bottom: 12rpx;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 42rpx;
+  font-weight: 900;
+}
+
+.empty-state .primary-button {
+  margin-top: 28rpx;
+}
+
+.calendar-head {
+  display: grid;
+  grid-template-columns: 76rpx 1fr 76rpx;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 18rpx;
+}
+
+.calendar-head button {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 22rpx;
+  background: rgba(255,253,248,.78);
+  color: #2b261f;
+  font-size: 48rpx;
+}
+
+.calendar-head text:first-child {
+  display: block;
+  color: #817364;
+  font-size: 23rpx;
+  font-weight: 800;
+}
+
+.calendar-head text:last-child {
+  display: block;
+  margin-top: 4rpx;
+  font-family: "Songti SC", "STSong", serif;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.weekday-row,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10rpx;
+}
+
+.weekday-row {
+  margin-bottom: 10rpx;
+  color: #817364;
+  text-align: center;
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.calendar-date {
+  min-height: 74rpx;
+  border-radius: 20rpx;
+  background: rgba(255,253,248,.62);
+  color: #2b261f;
+  font-size: 24rpx;
+}
+
+.calendar-date text {
+  display: block;
+}
+
+.calendar-date.done text:last-child {
+  color: #2e7059;
+}
+
+.calendar-date.partial text:last-child {
+  color: #d49a41;
+}
+
+.calendar-date.missed text:last-child {
+  color: #e78b66;
+}
+
+.calendar-date.is-selected {
+  background: linear-gradient(180deg, #2f8a66, #17563d);
+  color: #fff;
+}
+
+.calendar-date.is-muted {
+  opacity: .42;
+}
+
+.selected-date {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22rpx;
+  border: 2rpx solid rgba(226,207,175,.78);
+  border-radius: 24rpx;
+  background: rgba(255,253,248,.72);
+  padding: 22rpx;
+  color: #817364;
+  font-size: 24rpx;
+  font-weight: 800;
+}

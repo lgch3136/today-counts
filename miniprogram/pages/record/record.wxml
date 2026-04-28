@@ -1,0 +1,110 @@
+<view class="page record-page">
+  <view class="topbar">
+    <view class="brand">
+      <view class="brand-mark"><view class="brand-sprout"></view></view>
+      <view>
+        <text class="brand-title">今天算数</text>
+        <text class="brand-subtitle">记录今天的推进</text>
+      </view>
+    </view>
+  </view>
+
+  <text class="section-kicker">记录今天的推进</text>
+  <text class="section-title">慢一点，也算在前进</text>
+
+  <view wx:if="{{!hasFlags}}" class="card empty-state">
+    <view class="empty-moon"></view>
+    <text class="empty-title">今天还没插旗</text>
+    <text class="microcopy">先回到今日页，写一件晚上能验收的小事。</text>
+    <button class="primary-button" bindtap="goToday">去今日页</button>
+  </view>
+
+  <block wx:else>
+    <view class="card progress-hero">
+      <view>
+        <text class="progress-kicker">今日记录</text>
+        <text class="progress-title">慢一点，也算在前进</text>
+        <text class="microcopy">{{doneCount}}/{{todayFlags.length}} 面 flag 已插稳，继续把进度往前挪。</text>
+      </view>
+      <view class="progress-ring">
+        <text>{{totalProgress}}%</text>
+        <text>今日进度</text>
+      </view>
+    </view>
+
+    <view wx:for="{{todayFlags}}" wx:key="id" class="card flag-card">
+      <view class="sheet-label">{{item.statusLabel}}</view>
+      <text class="flag-title">{{item.goal}}</text>
+      <text class="microcopy">状态不好时：{{item.minimum}}</text>
+      <view class="meter-card">
+        <view class="meter-head">
+          <text>完成进度</text>
+          <text>{{item.progress}}%</text>
+        </view>
+        <slider value="{{item.progress}}" min="0" max="100" step="5" block-size="24" activeColor="#2e7059" backgroundColor="#e2cfaf" data-id="{{item.id}}" bindchange="onProgressChange" />
+        <view class="track"><view style="width: {{item.progress}}%;"></view></view>
+      </view>
+      <view class="button-row">
+        <button wx:if="{{item.status === 'pending'}}" class="primary-button" data-id="{{item.id}}" bindtap="completeFlag">算数了</button>
+        <button wx:if="{{item.status === 'pending'}}" class="secondary-button" data-id="{{item.id}}" bindtap="openReason">卡住了</button>
+        <button wx:if="{{item.status !== 'pending' && item.status !== 'done'}}" class="primary-button" data-id="{{item.id}}" bindtap="completeFlag">改成完成</button>
+        <button wx:if="{{item.status !== 'pending' && item.status !== 'done'}}" class="secondary-button" data-id="{{item.id}}" bindtap="reopenFlag">重新推进</button>
+        <button wx:if="{{item.status === 'done'}}" class="secondary-button" data-id="{{item.id}}" bindtap="reopenFlag">继续调整</button>
+        <button class="ghost-button" bindtap="goShare">去盖认真戳</button>
+      </view>
+      <view wx:if="{{reasonFlagId === item.id}}" class="reason-panel">
+        <text class="microcopy">选一个最接近的原因，这面 flag 就完成今天的复盘。</text>
+        <view class="reason-grid">
+          <button wx:for="{{reasons}}" wx:for-item="reason" wx:key="value" class="reason-button" data-id="{{item.id}}" data-reason="{{reason.value}}" bindtap="chooseReason">{{reason.label}}</button>
+        </view>
+      </view>
+      <view class="log-card">
+        <view class="sheet-label">脚印</view>
+        <view wx:for="{{item.logs}}" wx:key="at" class="log-row">
+          <text>{{item.time}}</text>
+          <text>{{item.label}}</text>
+          <text>{{item.value}}%</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="card mood-card">
+      <view class="sheet-label">今日体感</view>
+      <text class="microcopy">{{moodHelper}}</text>
+      <view class="mood-grid">
+        <button wx:for="{{moods}}" wx:key="value" class="mood-button {{selectedMood === item.value ? 'is-active' : ''}}" data-mood="{{item.value}}" bindtap="setMood">{{item.label}}</button>
+      </view>
+    </view>
+  </block>
+
+  <view class="card calendar-card">
+    <view class="calendar-head">
+      <button bindtap="prevMonth">‹</button>
+      <view>
+        <text>认真日历</text>
+        <text>{{monthTitle}}</text>
+      </view>
+      <button bindtap="nextMonth">›</button>
+    </view>
+    <view class="weekday-row">
+      <text wx:for="{{weekdays}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="calendar-grid">
+      <button wx:for="{{calendarDates}}" wx:key="dateKey" class="calendar-date {{item.status}} {{item.selected ? 'is-selected' : ''}} {{item.muted ? 'is-muted' : ''}}" data-date="{{item.dateKey}}" bindtap="selectDate">
+        <text>{{item.day}}</text>
+        <text>{{item.mark}}</text>
+      </button>
+    </view>
+    <view class="selected-date">
+      <text>{{selectedDateLabel}}</text>
+      <text>{{selectedDateSummary}}</text>
+    </view>
+  </view>
+
+  <view class="bottom-dock">
+    <button class="dock-item" bindtap="goToday"><text class="dock-icon">⚑</text><text>今日</text></button>
+    <button class="dock-item is-active"><text class="dock-icon">▤</text><text>记录</text></button>
+    <button class="dock-item" bindtap="goShare"><text class="dock-icon">□</text><text>分享</text></button>
+    <button class="dock-item" bindtap="goProfile"><text class="dock-icon">·</text><text>我的</text></button>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+<view class="page share-page">
+  <view class="topbar">
+    <view class="brand">
+      <view class="brand-mark"><view class="brand-sprout"></view></view>
+      <view>
+        <text class="brand-title">今天算数</text>
+        <text class="brand-subtitle">复盘与分享</text>
+      </view>
+    </view>
+  </view>
+
+  <text class="section-kicker">复盘与分享</text>
+  <text class="section-title">给今天盖个认真戳</text>
+
+  <view class="share-card">
+    <image class="share-bg" src="/assets/share-bg-v27.jpg" mode="aspectFill"></image>
+    <view class="share-mask"></view>
+    <view class="stamp-mark">认真戳</view>
+    <view class="share-head">
+      <text>{{todayLabel}}</text>
+      <text>{{statusLabel}}</text>
+      <text wx:if="{{moodLabel}}">{{moodLabel}}</text>
+    </view>
+    <view class="share-main">
+      <text class="share-title">{{shareTitle}}</text>
+      <text class="share-quote">{{quote}}</text>
+    </view>
+    <view class="share-stats">
+      <view>
+        <text>今日进度</text>
+        <text>{{progress}}%</text>
+      </view>
+      <view>
+        <text>本月认真天</text>
+        <text>{{monthDone}}/{{monthActive}}</text>
+      </view>
+      <view>
+        <text>今日体感</text>
+        <text>{{moodText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="share-actions">
+    <button class="primary-button" bindtap="savePoster">保存认真戳</button>
+    <button class="secondary-button" open-type="share">发给朋友</button>
+    <button class="secondary-button" bindtap="copyText">复制文案</button>
+  </view>
+
+  <view class="card reflection-card">
+    <view class="sheet-label">今日复盘文案</view>
+    <text>{{insight}}</text>
+  </view>
+
+  <canvas type="2d" id="posterCanvas" class="poster-canvas"></canvas>
+
+  <view class="bottom-dock">
+    <button class="dock-item" bindtap="goToday"><text class="dock-icon">⚑</text><text>今日</text></button>
+    <button class="dock-item" bindtap="goRecord"><text class="dock-icon">▤</text><text>记录</text></button>
+    <button class="dock-item is-active"><text class="dock-icon">□</text><text>分享</text></button>
+    <button class="dock-item" bindtap="goProfile"><text class="dock-icon">·</text><text>我的</text></button>
+  </view>
+</view>

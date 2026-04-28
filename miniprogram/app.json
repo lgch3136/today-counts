@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/today/today",
+    "pages/record/record",
+    "pages/share/share",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#f0e3d1",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

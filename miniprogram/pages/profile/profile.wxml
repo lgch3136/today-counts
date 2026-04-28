@@ -1,0 +1,52 @@
+<view class="page profile-page">
+  <view class="topbar">
+    <view class="brand">
+      <view class="brand-mark"><view class="brand-sprout"></view></view>
+      <view>
+        <text class="brand-title">今天算数</text>
+        <text class="brand-subtitle">提醒与设置</text>
+      </view>
+    </view>
+  </view>
+
+  <text class="section-kicker">我的</text>
+  <text class="section-title">把提醒放在合适的位置</text>
+
+  <view class="card profile-card">
+    <view class="stat-grid">
+      <view>
+        <text>连续认真</text>
+        <text>{{streak}} 天</text>
+      </view>
+      <view>
+        <text>全部记录</text>
+        <text>{{totalFlags}} 面</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card setting-card">
+    <view class="sheet-label">提醒</view>
+    <text class="microcopy">小程序提醒需要你主动授权订阅消息。等你有正式 AppID 后，在公众平台配置模板 ID，就能在这里开启。</text>
+    <view class="setting-row">
+      <text>默认提醒时间</text>
+      <picker mode="time" value="{{reminderTime}}" bindchange="onReminderChange">
+        <view>{{reminderTime}}</view>
+      </picker>
+    </view>
+    <button class="primary-button" bindtap="requestSubscribe">开启提醒授权</button>
+  </view>
+
+  <view class="card setting-card">
+    <view class="sheet-label">数据</view>
+    <text class="microcopy">记录只保存在当前微信的小程序本地。换手机或清理缓存前，后续可以接云开发同步。</text>
+    <button class="secondary-button danger-button" bindtap="clearData">清空所有记录</button>
+  </view>
+
+  <view class="bottom-dock">
+    <button class="dock-item" bindtap="goToday"><text class="dock-icon">⚑</text><text>今日</text></button>
+    <button class="dock-item" bindtap="goRecord"><text class="dock-icon">▤</text><text>记录</text></button>
+    <button class="dock-item" bindtap="goShare"><text class="dock-icon">□</text><text>分享</text></button>
+    <button class="dock-item is-active"><text class="dock-icon">·</text><text>我的</text></button>
+  </view>
+</view>

@@ -1,6 +1,6 @@
 # 今天算数交接记录
 
-记录时间：2026-04-28
+记录时间：2026-04-29
 
 ## 当前状态
 
@@ -9,6 +9,8 @@
 - 访问地址：`http://localhost:5177/?v=28`
 - GitHub：`https://github.com/lgch3136/today-counts`
 - 当前为独立 git 仓库，`main` 跟踪 `origin/main`。
+- 小程序路径：`/Users/liugancheng/today-counts/miniprogram`
+- 小程序导入方式：用微信开发者工具导入 `miniprogram/` 目录。
 
 ## 已完成
 
@@ -30,6 +32,13 @@
 - 已按 `参考/` 里的设计建议完成界面改版：更轻的顶部品牌区、温暖纸感 Hero、首页主输入优先、记录页进度环、分享页认真戳海报感、底部导航线性图标统一。
 - 已新增两张生成式背景资产：`assets/home-bg-v27.jpg` 用于首页 Hero，`assets/share-bg-v27.jpg` 用于分享页和导出海报；旧的 `assets/share-card-bg.png` 暂时保留作为历史资产。
 - 首页“连续 X 天”从圆章改成轻量信息签，避免和背景元素冲突；圆章语义只保留给分享页“认真戳”。
+- 已新增微信小程序版本：
+  - 原生小程序结构，不依赖 npm 和构建工具。
+  - 页面包括 `today`、`record`、`share`、`profile`。
+  - 复用高级背景资产到 `miniprogram/assets/`。
+  - 本地缓存保存 flag、进度、体感、提醒时间。
+  - 分享页支持小程序分享、复制文案和 canvas 保存海报。
+  - 订阅提醒入口已预留，真实定时发送仍需订阅消息模板和云函数/服务端。
 - README 已更新到当前功能描述。
 
 ## 关键文件
@@ -41,11 +50,15 @@
 - `assets/home-bg-v27.jpg`：首页 Hero 背景图。
 - `assets/share-bg-v27.jpg`：分享页与导出海报背景图。
 - `assets/share-card-bg.png`：旧版背景图，暂时保留为历史资产。
+- `miniprogram/`：微信小程序版本。
+- `miniprogram/README.md`：小程序导入、预览、上传、发布步骤。
 - `README.md`：运行方式和功能列表。
 
 ## 已验证
 
 - `node --check app.js` 通过。
+- `find miniprogram -name '*.js' -print -exec node --check {} \;` 通过。
+- 小程序 JSON 文件格式校验通过。
 - `curl -I -L http://localhost:5177/?v=24` 返回 `200`。
 - 390x844 移动端截图验证：
   - 首页 CTA 完整可见，不被底部导航遮挡。
@@ -63,14 +76,15 @@
 
 ## 下次继续建议
 
-1. 用真实手机浏览器打开 `http://电脑局域网 IP:5177/?v=28`，重点看 PWA 安装、底部导航和分享海报保存。
-2. 测试已有旧 localStorage 数据时的兼容性，确认 `normalizeFlag()` 对旧记录表现正常。
-3. 在 Safari / Chrome 分别测试通知权限和分享能力。
-4. 继续优化分享海报里的长标题换行，特别是超过 30 个中文字符的 flag。
-5. 如果继续大改视觉，优先把新增设计规则整理进 `styles.css` 末尾的改版区，避免改散。
+1. 用微信开发者工具导入 `miniprogram/`，先用测试号编译和手机预览。
+2. 注册或进入真实小程序账号后，把 `project.config.json` 的 `appid` 换成真实 AppID。
+3. 在微信公众平台申请订阅消息模板，把模板 ID 写进 `miniprogram/utils/config.js`。
+4. 下一步优先做云开发：用户数据同步、订阅消息定时发送、跨设备记录。
+5. 用真实手机浏览器打开 `http://电脑局域网 IP:5177/?v=28`，保留网页版本作为备份预览。
 
 ## 注意事项
 
 - 浏览器通知依赖系统和浏览器策略，页面关闭后不保证稳定提醒。
+- 小程序前端不能独立完成后台定时提醒，必须接微信订阅消息和后端/云函数。
 - Service Worker 会缓存文件，改动后记得同步提升 `index.html`、`sw.js` 里的版本号。
 - 当前视觉主要按 390px 宽移动端优化；桌面端是手机壳式居中预览。

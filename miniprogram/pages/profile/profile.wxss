@@ -1,0 +1,62 @@
+.profile-card,
+.setting-card {
+  padding: 32rpx;
+  margin-bottom: 26rpx;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.stat-grid view {
+  min-height: 150rpx;
+  border: 2rpx solid rgba(226,207,175,.84);
+  border-radius: 24rpx;
+  background: rgba(255,253,248,.76);
+  padding: 24rpx;
+}
+
+.stat-grid text:first-child {
+  display: block;
+  color: #817364;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.stat-grid text:last-child {
+  display: block;
+  margin-top: 14rpx;
+  color: #2e7059;
+  font-size: 44rpx;
+  font-weight: 950;
+}
+
+.setting-card .microcopy {
+  display: block;
+  margin: 20rpx 0 24rpx;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 92rpx;
+  border: 2rpx solid rgba(226,207,175,.84);
+  border-radius: 24rpx;
+  background: rgba(255,253,248,.76);
+  padding: 0 24rpx;
+  margin-bottom: 20rpx;
+  color: #2b261f;
+  font-size: 28rpx;
+  font-weight: 850;
+}
+
+.setting-row picker {
+  color: #2e7059;
+}
+
+.danger-button {
+  color: #a84f3f;
+}

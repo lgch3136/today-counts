@@ -1,0 +1,89 @@
+<view class="page today-page">
+  <view class="topbar">
+    <view class="brand">
+      <view class="brand-mark"><view class="brand-sprout"></view></view>
+      <view>
+        <text class="brand-title">今天算数</text>
+        <text class="brand-subtitle">一个小约定 · 改变每一天</text>
+      </view>
+    </view>
+    <button class="notify-button" bindtap="openReminder">
+      <view class="notify-dot"></view>
+    </button>
+  </view>
+
+  <view class="hero-card">
+    <image class="hero-bg" src="/assets/home-bg-v27.jpg" mode="aspectFill"></image>
+    <view class="hero-mask"></view>
+    <view class="date-pill">{{dateLabel}}</view>
+    <view class="streak-pill">
+      <text>连续</text>
+      <text class="streak-number">{{streak}}</text>
+      <text>天</text>
+    </view>
+    <view class="hero-copy">
+      <text class="hero-title">{{greetingLabel}}\n只让一件事算数</text>
+      <text class="hero-subtitle">不用安排一整天，只把今天的自己往前牵一小步。晚上回来判断：完成了，推进了，还是卡住了。</text>
+    </view>
+  </view>
+
+  <view wx:if="{{!hasFlags}}" class="card compose-card">
+    <view class="sheet-label">立 flag</view>
+    <view class="field-label">
+      <text>今天想让哪件小事算数？</text>
+      <text>{{goalCount}}/220</text>
+    </view>
+    <textarea class="goal-input" maxlength="220" value="{{goal}}" placeholder="例如：晚上前把第一版做出来" bindinput="onGoalInput"></textarea>
+    <view class="quick-grid">
+      <view class="quick-card">
+        <text>怎么算数</text>
+        <input value="{{standard}}" placeholder="完成为准" bindinput="onStandardInput" />
+      </view>
+      <view class="quick-card">
+        <text>低电量版本</text>
+        <input value="{{minimum}}" placeholder="先做 10 分钟" bindinput="onMinimumInput" />
+      </view>
+      <view class="quick-card">
+        <text>提醒时间</text>
+        <picker mode="time" value="{{reminderTime}}" bindchange="onReminderChange">
+          <view class="time-value">{{reminderTime}}</view>
+        </picker>
+      </view>
+    </view>
+    <button class="primary-button wide-button" bindtap="submitFlag">立下今日约定</button>
+  </view>
+
+  <view wx:else class="card status-card">
+    <view class="sheet-label">今天的 flag</view>
+    <view class="summary-grid">
+      <view>
+        <text>已立</text>
+        <text class="summary-number">{{todayFlags.length}}</text>
+      </view>
+      <view>
+        <text>整体推进</text>
+        <text class="summary-number">{{totalProgress}}%</text>
+      </view>
+    </view>
+    <view class="flag-list">
+      <view wx:for="{{todayFlags}}" wx:key="id" class="flag-summary {{item.status}}">
+        <view>
+          <text class="flag-index">第 {{index + 1}} 面</text>
+          <text class="flag-goal">{{item.goal}}</text>
+        </view>
+        <text class="flag-progress">{{item.progressText}}</text>
+      </view>
+    </view>
+    <view class="button-row">
+      <button class="primary-button" bindtap="goRecord">去记录</button>
+      <button class="secondary-button" bindtap="resetToday">重新写</button>
+    </view>
+  </view>
+
+  <view class="bottom-dock">
+    <button class="dock-item is-active"><text class="dock-icon">⚑</text><text>今日</text></button>
+    <button class="dock-item" bindtap="goRecord"><text class="dock-icon">▤</text><text>记录</text></button>
+    <button class="dock-item" bindtap="goShare"><text class="dock-icon">□</text><text>分享</text></button>
+    <button class="dock-item" bindtap="goProfile"><text class="dock-icon">·</text><text>我的</text></button>
+  </view>
+</view>
