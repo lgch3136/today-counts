@@ -1,7 +1,7 @@
 const STORAGE_KEY = "today-counts-state-v1";
 const DEFAULT_REMINDER = "21:30";
 const UNDO_WINDOW_MS = 5 * 60 * 1000;
-const SHARE_BG_PATH = "assets/share-card-bg.png";
+const SHARE_BG_PATH = "assets/share-bg-v27.jpg";
 
 const REASONS = [
   ["too_big", "目标太大"],

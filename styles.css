@@ -995,7 +995,7 @@ textarea:focus {
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(255, 248, 234, 0.2), rgba(255, 248, 234, 0.66)),
-    url("assets/share-card-bg.png") center / cover;
+    url("assets/share-bg-v27.jpg") center / cover;
   box-shadow: var(--shadow);
   padding: 22px;
   overflow: hidden;
@@ -1413,7 +1413,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.78);
   background:
     linear-gradient(180deg, rgba(255, 250, 240, 0.1) 0%, rgba(255, 250, 240, 0.64) 60%, rgba(255, 250, 240, 0.95) 100%),
-    url("assets/share-card-bg.png") center / cover;
+    url("assets/home-bg-v27.jpg") center / cover;
   box-shadow:
     0 30px 70px rgba(86, 56, 31, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -1982,7 +1982,7 @@ h1 {
   min-height: 610px;
   background:
     linear-gradient(180deg, rgba(255, 250, 240, 0.08), rgba(255, 250, 240, 0.7)),
-    url("assets/share-card-bg.png") center / cover;
+    url("assets/share-bg-v27.jpg") center / cover;
 }
 
 .stamp-mark {
@@ -2087,7 +2087,7 @@ h1 {
   }
 }
 
-/* v26 reference-led redesign */
+/* v27 reference-led redesign */
 :root {
   --paper: #fff9ee;
   --paper-soft: #f8edda;
@@ -2198,7 +2198,7 @@ body::before {
   border-radius: 14px;
   background:
     linear-gradient(180deg, rgba(255, 251, 243, 0.12) 0%, rgba(255, 249, 238, 0.74) 58%, rgba(255, 249, 238, 0.98) 100%),
-    url("assets/share-card-bg.png") 50% 42% / cover;
+    url("assets/home-bg-v27.jpg") 50% 38% / cover;
   box-shadow:
     0 30px 70px rgba(78, 51, 27, 0.17),
     inset 0 1px 0 rgba(255, 255, 255, 0.92);
@@ -2270,18 +2270,35 @@ h1 {
 }
 
 .streak-pill {
-  top: 128px;
+  top: 142px;
   right: 21px;
-  width: 72px;
-  height: 72px;
-  border: 2px solid rgba(183, 91, 66, 0.54);
-  background: rgba(255, 249, 238, 0.66);
-  color: #9d503f;
-  box-shadow: 0 12px 28px rgba(85, 52, 28, 0.1);
+  width: auto;
+  min-width: 82px;
+  height: 42px;
+  display: inline-flex;
+  grid-template-columns: none;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid rgba(46, 112, 89, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 249, 238, 0.72);
+  color: var(--green);
+  padding: 0 12px;
+  box-shadow:
+    0 12px 28px rgba(85, 52, 28, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  transform: none;
 }
 
 .streak-pill strong {
-  font-size: 22px;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.streak-pill span {
+  font-size: 12px;
+  line-height: 1;
 }
 
 .stack {
@@ -2579,7 +2596,7 @@ textarea {
   padding: 24px 22px;
   background:
     linear-gradient(180deg, rgba(255, 249, 238, 0.05), rgba(255, 249, 238, 0.72)),
-    url("assets/share-card-bg.png") center / cover;
+    url("assets/share-bg-v27.jpg") center / cover;
 }
 
 .share-card::before {
