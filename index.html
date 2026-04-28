@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2f6f55">
+    <meta name="description" content="每天只记一件小事，晚上回来验收。">
+    <title>今天算数</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=24">
+  </head>
+  <body>
+    <div class="page-atmosphere" aria-hidden="true"></div>
+
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">算</div>
+          <div>
+            <strong>今天算数</strong>
+            <span>每天一个小约定</span>
+          </div>
+        </div>
+        <button id="notifyButton" class="icon-button" type="button" aria-label="开启提醒">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18 9.8a6 6 0 1 0-12 0c0 6-2.4 6.7-2.4 7.8h16.8C20.4 16.5 18 15.8 18 9.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.8 20a2.4 2.4 0 0 0 4.4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </header>
+
+      <main class="screen-stack">
+        <section id="homeView" class="view is-active" data-view-panel="home" aria-label="今日">
+          <section class="daily-scene home-scene" aria-labelledby="homeTitle">
+            <div class="scene-art" aria-hidden="true">
+              <div class="scene-window">
+                <span class="scene-sun"></span>
+                <span class="scene-cloud scene-cloud-one"></span>
+                <span class="scene-cloud scene-cloud-two"></span>
+              </div>
+              <div class="scene-desk"></div>
+              <div class="scene-note">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="scene-cup"></div>
+            </div>
+            <div class="scene-copy">
+              <p id="dateLabel" class="date-label"></p>
+              <h1 id="homeTitle"><span id="greetingLabel">今天好</span><span>先立一个 flag</span></h1>
+              <p>不用安排一整天，只留下一件能被晚上判断的事。</p>
+            </div>
+            <div id="streakPill" class="streak-pill"></div>
+          </section>
+          <section id="homePanel" class="stack"></section>
+        </section>
+
+        <section id="progressView" class="view" data-view-panel="progress" aria-label="进度">
+          <div class="view-heading">
+            <p>今天推进到哪里了</p>
+            <h2>一点点也算数</h2>
+          </div>
+          <section id="progressPanel" class="stack"></section>
+        </section>
+
+        <section id="shareView" class="view" data-view-panel="share" aria-label="分享">
+          <div class="view-heading">
+            <p>复盘与分享</p>
+            <h2>给今天盖个认真戳</h2>
+          </div>
+          <section id="sharePanel"></section>
+          <details class="low-priority-tools">
+            <summary>更多</summary>
+            <button id="clearButton" class="ghost-button danger-button" type="button">清空所有记录</button>
+          </details>
+        </section>
+      </main>
+
+      <nav class="bottom-dock" aria-label="主要导航">
+        <button class="dock-button is-active" type="button" data-nav="home" aria-label="今日">
+          <span class="dock-icon" aria-hidden="true">旗</span>
+          <span>今日</span>
+        </button>
+        <button class="dock-button" type="button" data-nav="progress" aria-label="进度">
+          <span class="dock-icon" aria-hidden="true">格</span>
+          <span>进度</span>
+        </button>
+        <button class="dock-button" type="button" data-nav="share" aria-label="分享">
+          <span class="dock-icon" aria-hidden="true">戳</span>
+          <span>分享</span>
+        </button>
+      </nav>
+    </div>
+
+    <script src="app.js?v=24"></script>
+  </body>
+</html>
