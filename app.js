@@ -732,13 +732,12 @@ function renderSharePanel(todayFlags) {
       </div>
       <div class="share-actions">
         <button class="primary-button" type="button" data-action="save-share-image">保存认真戳</button>
-        <button class="secondary-button" type="button" data-action="system-share">系统分享</button>
-        <button class="secondary-button" type="button" data-action="copy-share">复制嘴替</button>
+        <button class="secondary-button" type="button" data-action="system-share">发给朋友</button>
+        <button class="secondary-button" type="button" data-action="copy-share">复制文案</button>
       </div>
-      <p class="share-note">朋友圈通常要先保存海报，再去微信里发；能唤起系统分享时就直接走系统分享。</p>
     </article>
     <article class="task-sheet reflection-card">
-      <div class="sheet-label">今日嘴替</div>
+      <div class="sheet-label">今日复盘文案</div>
       <p>${escapeHtml(buildInsight(recentFlags))}</p>
       ${renderCalendarDeck("share")}
       <details class="history-details">
@@ -765,7 +764,7 @@ function copyShareText(flags, quote, completionRate) {
 
   if (navigator.clipboard?.writeText) {
     navigator.clipboard.writeText(text).then(() => {
-      showToast("嘴替已就位");
+      showToast("文案已复制");
     }).catch(() => {
       showToast("复制没成功，浏览器不给力");
     });
@@ -795,7 +794,7 @@ async function shareToday(flags, quote, completionRate) {
 
   if (!navigator.share) {
     copyShareText(flags, quote, completionRate);
-    showToast("系统分享没露面，嘴替先复制好");
+    showToast("分享没打开，文案先复制好");
     return;
   }
 
@@ -820,7 +819,7 @@ async function shareToday(flags, quote, completionRate) {
     });
   } catch (error) {
     if (error?.name !== "AbortError") {
-      showToast("系统分享没打开，先保存海报更稳");
+      showToast("分享没打开，可以先保存海报");
     }
   }
 }
