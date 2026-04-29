@@ -136,33 +136,37 @@ Page({
             });
           };
           image.onerror = reject;
-          image.src = "/assets/share-poster-v2.jpg";
+          image.src = "/assets/share-calendar-v3.jpg";
         });
     });
   },
 
   paintPoster(ctx, image, size) {
     ctx.drawImage(image, 0, 0, size, size);
-    ctx.fillStyle = "rgba(255,249,238,0.14)";
+    ctx.fillStyle = "rgba(255,249,238,0.08)";
     ctx.fillRect(0, 0, size, size);
 
     ctx.fillStyle = "#2b261f";
     ctx.font = "700 44px sans-serif";
-    ctx.fillText("今天算数", 116, 168);
+    ctx.fillText("今天算数", 116, 126);
 
     ctx.fillStyle = "#817364";
     ctx.font = "500 26px sans-serif";
-    ctx.fillText(this.data.todayLabel, 116, 212);
+    ctx.fillText(this.data.todayLabel, 116, 168);
+
+    ctx.fillStyle = "#2e7059";
+    ctx.font = "800 28px sans-serif";
+    ctx.fillText("本月算数日历", 116, 268);
 
     ctx.fillStyle = "#2b261f";
-    ctx.font = "800 68px sans-serif";
-    this.wrapText(ctx, this.data.shareTitle, 116, 410, 720, 82, 3);
+    ctx.font = "800 66px sans-serif";
+    this.wrapText(ctx, this.data.shareTitle, 116, 356, 760, 78, 3);
 
     ctx.fillStyle = "#817364";
     ctx.font = "500 32px sans-serif";
-    this.wrapText(ctx, this.data.quote, 116, 672, 720, 48, 3);
+    this.wrapText(ctx, this.data.quote, 116, 584, 760, 48, 3);
 
-    this.roundRect(ctx, 760, 142, 186, 78, 20);
+    this.roundRect(ctx, 760, 96, 186, 78, 20);
     ctx.fillStyle = "rgba(255,253,248,0.72)";
     ctx.fill();
     ctx.strokeStyle = "rgba(46,112,89,0.24)";
@@ -170,23 +174,23 @@ Page({
     ctx.stroke();
     ctx.fillStyle = "#2e7059";
     ctx.font = "800 24px sans-serif";
-    ctx.fillText("DAILY", 808, 174);
+    ctx.fillText("MONTH", 800, 128);
     ctx.fillStyle = "#817364";
     ctx.font = "700 20px sans-serif";
-    ctx.fillText("NOTE", 812, 202);
+    ctx.fillText("MAP", 820, 156);
 
     ctx.strokeStyle = "rgba(46,112,89,0.18)";
     ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(116, 842);
-    ctx.lineTo(906, 842);
+    ctx.moveTo(116, 860);
+    ctx.lineTo(906, 860);
     ctx.stroke();
     ctx.fillStyle = "#2e7059";
     ctx.font = "800 54px sans-serif";
-    ctx.fillText(`${this.data.progress}%`, 116, 914);
+    ctx.fillText(`${this.data.progress}%`, 116, 932);
     ctx.fillStyle = "#817364";
     ctx.font = "600 24px sans-serif";
-    ctx.fillText(`今日进度 / 本月认真天 ${this.data.monthDone}/${this.data.monthActive || 0}`, 116, 954);
+    ctx.fillText(`今日进度 / 本月认真天 ${this.data.monthDone}/${this.data.monthActive || 0}`, 116, 972);
   },
 
   wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {

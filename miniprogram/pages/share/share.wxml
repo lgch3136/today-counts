@@ -10,14 +10,14 @@
   </view>
 
   <text class="section-kicker">复盘与分享</text>
-  <text class="section-title">生成一张今日小结</text>
+  <text class="section-title">把本月节奏分享出去</text>
 
   <view class="share-card">
-    <image class="share-bg" src="/assets/share-poster-v2.jpg" mode="aspectFill"></image>
+    <image class="share-bg" src="/assets/share-calendar-v3.jpg" mode="aspectFill"></image>
     <view class="share-mask"></view>
     <view class="poster-mark">
-      <text>Daily</text>
-      <text>note</text>
+      <text>Month</text>
+      <text>map</text>
     </view>
     <view class="share-head">
       <text>{{todayLabel}}</text>
@@ -25,6 +25,7 @@
       <text wx:if="{{moodLabel}}">{{moodLabel}}</text>
     </view>
     <view class="share-main">
+      <text class="share-kicker">本月算数日历</text>
       <text class="share-title">{{shareTitle}}</text>
       <text class="share-quote">{{quote}}</text>
     </view>

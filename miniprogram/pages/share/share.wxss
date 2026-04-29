@@ -16,7 +16,7 @@
 }
 
 .share-mask {
-  background: linear-gradient(180deg, rgba(255,249,238,.02), rgba(255,249,238,.3) 58%, rgba(255,249,238,.76));
+  background: linear-gradient(180deg, rgba(255,249,238,.06), rgba(255,249,238,.18) 44%, rgba(255,249,238,.54));
 }
 
 .poster-mark {
@@ -70,32 +70,40 @@
   position: absolute;
   left: 50rpx;
   right: 50rpx;
-  top: 224rpx;
+  top: 148rpx;
+}
+
+.share-kicker {
+  display: block;
+  color: #2e7059;
+  font-size: 24rpx;
+  font-weight: 950;
+  margin-bottom: 18rpx;
 }
 
 .share-title {
   display: block;
   max-width: 610rpx;
   font-family: "Songti SC", "STSong", serif;
-  font-size: 60rpx;
+  font-size: 56rpx;
   font-weight: 900;
   line-height: 1.15;
 }
 
 .share-quote {
   display: block;
-  max-width: 600rpx;
-  margin-top: 30rpx;
+  max-width: 620rpx;
+  margin-top: 24rpx;
   color: #817364;
-  font-size: 29rpx;
-  line-height: 1.7;
+  font-size: 28rpx;
+  line-height: 1.62;
 }
 
 .share-stats {
   position: absolute;
   left: 50rpx;
   right: 50rpx;
-  bottom: 48rpx;
+  bottom: 44rpx;
   display: flex;
   border-top: 2rpx solid rgba(46,112,89,.16);
   padding-top: 22rpx;
