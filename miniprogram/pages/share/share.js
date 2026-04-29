@@ -136,54 +136,57 @@ Page({
             });
           };
           image.onerror = reject;
-          image.src = "/assets/share-bg-v27.jpg";
+          image.src = "/assets/share-poster-v2.jpg";
         });
     });
   },
 
   paintPoster(ctx, image, size) {
     ctx.drawImage(image, 0, 0, size, size);
-    ctx.fillStyle = "rgba(255,249,238,0.42)";
+    ctx.fillStyle = "rgba(255,249,238,0.14)";
     ctx.fillRect(0, 0, size, size);
-
-    this.roundRect(ctx, 92, 160, 896, 760, 44);
-    ctx.fillStyle = "rgba(255,249,238,0.74)";
-    ctx.fill();
 
     ctx.fillStyle = "#2b261f";
     ctx.font = "700 44px sans-serif";
-    ctx.fillText("今天算数", 140, 240);
+    ctx.fillText("今天算数", 116, 168);
 
     ctx.fillStyle = "#817364";
     ctx.font = "500 26px sans-serif";
-    ctx.fillText(this.data.todayLabel, 140, 284);
+    ctx.fillText(this.data.todayLabel, 116, 212);
 
     ctx.fillStyle = "#2b261f";
-    ctx.font = "800 58px sans-serif";
-    this.wrapText(ctx, this.data.shareTitle, 140, 420, 650, 70, 3);
+    ctx.font = "800 68px sans-serif";
+    this.wrapText(ctx, this.data.shareTitle, 116, 410, 720, 82, 3);
 
     ctx.fillStyle = "#817364";
-    ctx.font = "500 30px sans-serif";
-    this.wrapText(ctx, this.data.quote, 140, 642, 700, 44, 3);
+    ctx.font = "500 32px sans-serif";
+    this.wrapText(ctx, this.data.quote, 116, 672, 720, 48, 3);
 
-    this.roundRect(ctx, 738, 218, 188, 86, 24);
+    this.roundRect(ctx, 760, 142, 186, 78, 20);
     ctx.fillStyle = "rgba(255,253,248,0.72)";
     ctx.fill();
     ctx.strokeStyle = "rgba(46,112,89,0.24)";
     ctx.lineWidth = 3;
     ctx.stroke();
     ctx.fillStyle = "#2e7059";
-    ctx.font = "800 26px sans-serif";
-    ctx.fillText("TODAY", 780, 254);
+    ctx.font = "800 24px sans-serif";
+    ctx.fillText("DAILY", 808, 174);
     ctx.fillStyle = "#817364";
-    ctx.font = "700 22px sans-serif";
-    ctx.fillText("COUNTS", 778, 284);
+    ctx.font = "700 20px sans-serif";
+    ctx.fillText("NOTE", 812, 202);
 
+    ctx.strokeStyle = "rgba(46,112,89,0.18)";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(116, 842);
+    ctx.lineTo(906, 842);
+    ctx.stroke();
     ctx.fillStyle = "#2e7059";
     ctx.font = "800 54px sans-serif";
-    ctx.fillText(`${this.data.progress}%`, 140, 820);
+    ctx.fillText(`${this.data.progress}%`, 116, 914);
+    ctx.fillStyle = "#817364";
     ctx.font = "600 24px sans-serif";
-    ctx.fillText(`今日进度 / 本月认真天 ${this.data.monthDone}/${this.data.monthActive || 0}`, 140, 864);
+    ctx.fillText(`今日进度 / 本月认真天 ${this.data.monthDone}/${this.data.monthActive || 0}`, 116, 954);
   },
 
   wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {

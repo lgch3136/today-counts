@@ -2,10 +2,10 @@ const STORAGE_KEY = "today-counts-state-v1";
 const DEFAULT_REMINDER = "21:30";
 
 const REASONS = [
-  { value: "too_big", label: "目标太大" },
-  { value: "forgot", label: "忘了" },
-  { value: "not_started", label: "没开始" },
-  { value: "interrupted", label: "被打断" }
+  { value: "too_big", label: "目标太大", tag: "拆小", helper: "明天改成更轻的一步" },
+  { value: "forgot", label: "忘了", tag: "提醒", helper: "给晚上留一个明确入口" },
+  { value: "not_started", label: "没开始", tag: "启动", helper: "先从两分钟版本开始" },
+  { value: "interrupted", label: "被打断", tag: "中断", helper: "把外部阻力单独记下" }
 ];
 
 const MOODS = [

@@ -7,13 +7,6 @@
         <text class="brand-subtitle">一个小约定 · 改变每一天</text>
       </view>
     </view>
-    <button class="reminder-button" bindtap="openReminder">
-      <view class="reminder-icon"></view>
-      <view class="reminder-copy">
-        <text>提醒</text>
-        <text>{{reminderTime}}</text>
-      </view>
-    </button>
   </view>
 
   <view class="hero-card">
@@ -29,6 +22,15 @@
       <text class="hero-title">{{greetingLabel}}\n只让一件事算数</text>
       <text class="hero-subtitle">不用安排一整天，只把今天的自己往前牵一小步。晚上回来判断：完成了，推进了，还是卡住了。</text>
     </view>
+  </view>
+
+  <view class="reminder-strip" bindtap="openReminder">
+    <view class="reminder-symbol"></view>
+    <view class="reminder-main">
+      <text>晚上提醒我回来复盘</text>
+      <text>微信订阅提醒 · 默认 {{reminderTime}}</text>
+    </view>
+    <view class="reminder-action">设置</view>
   </view>
 
   <view wx:if="{{!hasFlags}}" class="card compose-card">

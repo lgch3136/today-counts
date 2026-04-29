@@ -13,11 +13,11 @@
   <text class="section-title">生成一张今日小结</text>
 
   <view class="share-card">
-    <image class="share-bg" src="/assets/share-bg-v27.jpg" mode="aspectFill"></image>
+    <image class="share-bg" src="/assets/share-poster-v2.jpg" mode="aspectFill"></image>
     <view class="share-mask"></view>
     <view class="poster-mark">
-      <text>Today</text>
-      <text>counts</text>
+      <text>Daily</text>
+      <text>note</text>
     </view>
     <view class="share-head">
       <text>{{todayLabel}}</text>

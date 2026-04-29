@@ -55,7 +55,13 @@
       <view wx:if="{{reasonFlagId === item.id}}" class="reason-panel">
         <text class="microcopy">选一个最接近的原因，这面 flag 就完成今天的复盘。</text>
         <view class="reason-grid">
-          <button wx:for="{{reasons}}" wx:for-item="reason" wx:key="value" class="reason-button" data-id="{{item.id}}" data-reason="{{reason.value}}" bindtap="chooseReason">{{reason.label}}</button>
+          <view wx:for="{{reasons}}" wx:for-item="reason" wx:key="value" class="reason-tile" data-id="{{item.id}}" data-reason="{{reason.value}}" bindtap="chooseReason">
+            <text class="reason-tag">{{reason.tag}}</text>
+            <view>
+              <text class="reason-label">{{reason.label}}</text>
+              <text class="reason-helper">{{reason.helper}}</text>
+            </view>
+          </view>
         </view>
       </view>
       <view class="log-card">

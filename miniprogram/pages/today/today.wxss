@@ -1,6 +1,6 @@
 .hero-card {
   position: relative;
-  min-height: 338rpx;
+  min-height: 310rpx;
   overflow: hidden;
   border-radius: 28rpx;
   box-shadow: 0 30rpx 70rpx rgba(78, 51, 27, 0.17);
@@ -75,7 +75,7 @@
 .hero-title {
   display: block;
   font-family: "Songti SC", "STSong", serif;
-  font-size: 46rpx;
+  font-size: 44rpx;
   font-weight: 900;
   line-height: 1.08;
   white-space: pre-line;
@@ -89,10 +89,83 @@
   line-height: 1.45;
 }
 
+.reminder-strip {
+  display: flex;
+  align-items: center;
+  min-height: 106rpx;
+  margin-top: 22rpx;
+  border: 2rpx solid rgba(46,112,89,.18);
+  border-radius: 28rpx;
+  background: linear-gradient(135deg, rgba(237,247,240,.96), rgba(255,253,248,.9));
+  box-shadow: 0 14rpx 34rpx rgba(46,112,89,.1), inset 0 2rpx 0 rgba(255,255,255,.9);
+  padding: 18rpx 20rpx;
+}
+
+.reminder-symbol {
+  position: relative;
+  width: 54rpx;
+  height: 54rpx;
+  flex: 0 0 54rpx;
+  margin-right: 18rpx;
+  border: 3rpx solid #2e7059;
+  border-radius: 50%;
+}
+
+.reminder-symbol::before,
+.reminder-symbol::after {
+  content: "";
+  position: absolute;
+  left: 25rpx;
+  top: 12rpx;
+  width: 3rpx;
+  height: 18rpx;
+  border-radius: 999rpx;
+  background: #2e7059;
+}
+
+.reminder-symbol::after {
+  top: 27rpx;
+  width: 16rpx;
+  height: 3rpx;
+}
+
+.reminder-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.reminder-main text:first-child {
+  display: block;
+  color: #243d31;
+  font-size: 28rpx;
+  font-weight: 950;
+}
+
+.reminder-main text:last-child {
+  display: block;
+  margin-top: 8rpx;
+  color: #6f6255;
+  font-size: 23rpx;
+  font-weight: 750;
+}
+
+.reminder-action {
+  min-width: 92rpx;
+  min-height: 54rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999rpx;
+  background: #2e7059;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
 .compose-card,
 .status-card {
   position: relative;
-  margin-top: 34rpx;
+  margin-top: 24rpx;
   padding: 32rpx;
 }
 
