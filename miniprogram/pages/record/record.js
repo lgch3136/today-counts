@@ -11,7 +11,7 @@ Page({
     selectedMood: "",
     moodHelper: "先选一个今天的体感，复盘会更像在和自己说话。",
     reasonFlagId: "",
-    weekdays: ["日", "一", "二", "三", "四", "五", "六"],
+    weekdays: ["一", "二", "三", "四", "五", "六", "日"],
     calendarDates: [],
     monthTitle: "",
     selectedDateKey: stateUtils.getDateKey(new Date()),

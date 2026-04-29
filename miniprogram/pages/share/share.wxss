@@ -87,13 +87,15 @@
   left: 42rpx;
   right: 42rpx;
   bottom: 42rpx;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14rpx;
+  display: flex;
+  margin: 0 -7rpx;
 }
 
 .share-stats view {
+  flex: 1;
+  min-width: 0;
   min-height: 126rpx;
+  margin: 0 7rpx;
   border: 2rpx solid rgba(226,207,175,.82);
   border-radius: 24rpx;
   background: rgba(255,253,248,.82);
@@ -116,19 +118,24 @@
 }
 
 .share-actions {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16rpx;
-  margin: 26rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 26rpx -8rpx;
+}
+
+.share-actions button {
+  flex: 1 1 280rpx;
+  margin: 0 8rpx 16rpx;
 }
 
 .share-actions .primary-button {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
+  width: auto;
 }
 
 .reflection-card {
   padding: 30rpx;
-  margin-bottom: 26rpx;
+  margin: 26rpx 0;
 }
 
 .reflection-card text:last-child {

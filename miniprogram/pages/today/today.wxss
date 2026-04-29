@@ -130,14 +130,15 @@
 }
 
 .quick-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14rpx;
-  margin: 24rpx 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 24rpx -7rpx 10rpx;
 }
 
 .quick-card {
+  flex: 1 1 190rpx;
   min-height: 126rpx;
+  margin: 0 7rpx 14rpx;
   border: 2rpx solid rgba(226,207,175,.84);
   border-radius: 24rpx;
   background: rgba(255,253,248,.72);
@@ -163,14 +164,14 @@
 }
 
 .summary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16rpx;
-  margin: 24rpx 0;
+  display: flex;
+  margin: 24rpx -8rpx;
 }
 
 .summary-grid > view {
+  flex: 1;
   min-height: 140rpx;
+  margin: 0 8rpx;
   border: 2rpx solid rgba(226,207,175,.84);
   border-radius: 24rpx;
   background: rgba(255,253,248,.76);
@@ -194,14 +195,15 @@
 }
 
 .flag-list {
-  display: grid;
-  gap: 14rpx;
+  display: flex;
+  flex-direction: column;
 }
 
 .flag-summary {
   display: flex;
   justify-content: space-between;
   gap: 18rpx;
+  margin-top: 14rpx;
   border: 2rpx solid rgba(226,207,175,.84);
   border-radius: 24rpx;
   background: rgba(255,253,248,.76);

@@ -13,7 +13,7 @@
   <text class="section-title">慢一点，也算在前进</text>
 
   <view wx:if="{{!hasFlags}}" class="card empty-state">
-    <view class="empty-moon"></view>
+    <image class="empty-flag-image" src="/assets/empty-flag-v1.jpg" mode="aspectFit"></image>
     <text class="empty-title">今天还没插旗</text>
     <text class="microcopy">先回到今日页，写一件晚上能验收的小事。</text>
     <button class="primary-button" bindtap="goToday">去今日页</button>
@@ -91,8 +91,10 @@
     </view>
     <view class="calendar-grid">
       <button wx:for="{{calendarDates}}" wx:key="dateKey" class="calendar-date {{item.status}} {{item.selected ? 'is-selected' : ''}} {{item.muted ? 'is-muted' : ''}}" data-date="{{item.dateKey}}" bindtap="selectDate">
-        <text>{{item.day}}</text>
-        <text>{{item.mark}}</text>
+        <view class="calendar-cell">
+          <text>{{item.day}}</text>
+          <text>{{item.mark}}</text>
+        </view>
       </button>
     </view>
     <view class="selected-date">

@@ -207,7 +207,8 @@ function buildShareText(flags, quote, completionRate) {
 function getMonthGridDates(date) {
   const monthStart = getMonthStart(date);
   const first = new Date(monthStart);
-  first.setDate(first.getDate() - first.getDay());
+  const mondayOffset = (first.getDay() + 6) % 7;
+  first.setDate(first.getDate() - mondayOffset);
   const dates = [];
   for (let index = 0; index < 42; index += 1) {
     const item = new Date(first);

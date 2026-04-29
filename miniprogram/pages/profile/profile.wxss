@@ -5,13 +5,14 @@
 }
 
 .stat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16rpx;
+  display: flex;
+  margin: 0 -8rpx;
 }
 
 .stat-grid view {
+  flex: 1;
   min-height: 150rpx;
+  margin: 0 8rpx;
   border: 2rpx solid rgba(226,207,175,.84);
   border-radius: 24rpx;
   background: rgba(255,253,248,.76);

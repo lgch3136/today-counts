@@ -3,3 +3,4 @@ node_modules/
 dist/
 *.log
 参考/
+miniprogram/project.private.config.json
