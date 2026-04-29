@@ -12,32 +12,6 @@
   <text class="section-kicker">记录今天的推进</text>
   <text class="section-title">慢一点，也算在前进</text>
 
-  <view class="card calendar-card">
-    <view class="calendar-head">
-      <button bindtap="prevMonth">‹</button>
-      <view>
-        <text>本月算数日历</text>
-        <text>{{monthTitle}}</text>
-      </view>
-      <button bindtap="nextMonth">›</button>
-    </view>
-    <view class="weekday-row">
-      <text wx:for="{{weekdays}}" wx:key="*this">{{item}}</text>
-    </view>
-    <view class="calendar-grid">
-      <view wx:for="{{calendarDates}}" wx:key="dateKey" class="calendar-date {{item.status}} {{item.selected ? 'is-selected' : ''}} {{item.muted ? 'is-muted' : ''}}" data-date="{{item.dateKey}}" bindtap="selectDate">
-        <view class="calendar-cell">
-          <text>{{item.day}}</text>
-          <text>{{item.mark}}</text>
-        </view>
-      </view>
-    </view>
-    <view class="selected-date">
-      <text>{{selectedDateLabel}}</text>
-      <text>{{selectedDateSummary}}</text>
-    </view>
-  </view>
-
   <view wx:if="{{!hasFlags}}" class="card empty-state">
     <image class="empty-flag-image" src="/assets/empty-flag-v1.jpg" mode="aspectFit"></image>
     <text class="empty-title">今天还没插旗</text>
@@ -67,7 +41,7 @@
           <text>完成进度</text>
           <text>{{item.progress}}%</text>
         </view>
-        <slider value="{{item.progress}}" min="0" max="100" step="5" block-size="24" activeColor="#2e7059" backgroundColor="#e2cfaf" data-id="{{item.id}}" bindchange="onProgressChange" />
+        <slider value="{{item.progress}}" min="0" max="100" step="5" block-size="24" activeColor="#127d8f" backgroundColor="#c8d8df" data-id="{{item.id}}" bindchange="onProgressChange" />
       </view>
       <view class="button-row">
         <button wx:if="{{item.status === 'pending'}}" class="primary-button" data-id="{{item.id}}" bindtap="completeFlag">算数了</button>
@@ -107,6 +81,32 @@
       </view>
     </view>
   </block>
+
+  <view class="card calendar-card">
+    <view class="calendar-head">
+      <button bindtap="prevMonth">‹</button>
+      <view>
+        <text>本月算数日历</text>
+        <text>{{monthTitle}}</text>
+      </view>
+      <button bindtap="nextMonth">›</button>
+    </view>
+    <view class="weekday-row">
+      <text wx:for="{{weekdays}}" wx:key="*this">{{item}}</text>
+    </view>
+    <view class="calendar-grid">
+      <view wx:for="{{calendarDates}}" wx:key="dateKey" class="calendar-date {{item.status}} {{item.selected ? 'is-selected' : ''}} {{item.muted ? 'is-muted' : ''}}" data-date="{{item.dateKey}}" bindtap="selectDate">
+        <view class="calendar-cell">
+          <text>{{item.day}}</text>
+          <text>{{item.mark}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="selected-date">
+      <text>{{selectedDateLabel}}</text>
+      <text>{{selectedDateSummary}}</text>
+    </view>
+  </view>
 
   <view class="bottom-dock">
     <button class="dock-item" bindtap="goToday"><text class="dock-icon">⚑</text><text>今日</text></button>

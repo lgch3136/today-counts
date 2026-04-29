@@ -13,7 +13,7 @@
 }
 
 .progress-kicker {
-  color: #817364;
+  color: #607582;
   font-size: 24rpx;
   font-weight: 800;
 }
@@ -35,14 +35,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2rpx solid rgba(46,112,89,.18);
+  border: 2rpx solid rgba(18,125,143,.18);
   border-radius: 28rpx;
-  background: linear-gradient(180deg, rgba(255,253,248,.92), rgba(237,247,240,.82));
+  background: linear-gradient(180deg, rgba(248,252,255,.92), rgba(228,247,252,.82));
   box-shadow: inset 0 2rpx 0 rgba(255,255,255,.88);
 }
 
 .progress-ring text:first-child {
-  color: #2e7059;
+  color: #127d8f;
   font-size: 44rpx;
   font-weight: 950;
   line-height: 1;
@@ -50,7 +50,7 @@
 
 .progress-ring text:last-child {
   margin-top: 8rpx;
-  color: #817364;
+  color: #607582;
   font-size: 20rpx;
   font-weight: 800;
 }
@@ -71,7 +71,7 @@
   width: 94rpx;
   height: 32rpx;
   border-radius: 0 0 14rpx 14rpx;
-  background: rgba(245, 203, 124, 0.76);
+  background: rgba(87,183,211,.4);
 }
 
 .flag-title {
@@ -85,9 +85,9 @@
 
 .meter-card {
   margin-top: 26rpx;
-  border: 2rpx solid rgba(226,207,175,.84);
+  border: 2rpx solid rgba(169,194,205,.7);
   border-radius: 26rpx;
-  background: linear-gradient(135deg, rgba(220,236,225,.74), rgba(255,253,248,.84));
+  background: linear-gradient(135deg, rgba(222,244,249,.74), rgba(248,252,255,.84));
   padding: 26rpx;
 }
 
@@ -95,13 +95,13 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  color: #817364;
+  color: #607582;
   font-size: 24rpx;
   font-weight: 850;
 }
 
 .meter-head text:last-child {
-  color: #2e7059;
+  color: #127d8f;
   font-size: 58rpx;
   line-height: 1;
   font-weight: 950;
@@ -109,7 +109,7 @@
 
 .reason-panel {
   margin-top: 24rpx;
-  border-top: 2rpx dashed rgba(226,207,175,.9);
+  border-top: 2rpx dashed rgba(169,194,205,.72);
   padding-top: 22rpx;
 }
 
@@ -125,9 +125,9 @@
   min-height: 132rpx;
   display: flex;
   align-items: flex-start;
-  border: 2rpx solid rgba(46,112,89,.15);
+  border: 2rpx solid rgba(18,125,143,.15);
   border-radius: 24rpx;
-  background: linear-gradient(180deg, rgba(255,253,248,.94), rgba(238,246,240,.78));
+  background: linear-gradient(180deg, rgba(248,252,255,.94), rgba(229,246,250,.78));
   box-shadow: inset 0 2rpx 0 rgba(255,255,255,.86);
   padding: 18rpx;
   margin-bottom: 14rpx;
@@ -141,7 +141,7 @@
   justify-content: center;
   margin-right: 14rpx;
   border-radius: 999rpx;
-  background: #2e7059;
+  background: #127d8f;
   color: #fff;
   font-size: 20rpx;
   font-weight: 950;
@@ -149,7 +149,7 @@
 
 .reason-label {
   display: block;
-  color: #27372e;
+  color: #17323b;
   font-size: 28rpx;
   font-weight: 950;
   line-height: 1.2;
@@ -158,7 +158,7 @@
 .reason-helper {
   display: block;
   margin-top: 8rpx;
-  color: #817364;
+  color: #607582;
   font-size: 22rpx;
   line-height: 1.35;
   font-weight: 750;
@@ -171,10 +171,10 @@
   align-items: center;
   justify-content: center;
   margin-right: 10rpx;
-  border: 2rpx solid rgba(226,207,175,.9);
+  border: 2rpx solid rgba(169,194,205,.72);
   border-radius: 999rpx;
-  background: rgba(255,253,248,.78);
-  color: #2b261f;
+  background: rgba(248,252,255,.78);
+  color: #162a34;
   font-size: 24rpx;
   font-weight: 850;
 }
@@ -190,14 +190,14 @@
 }
 
 .mood-button.is-active {
-  border-color: rgba(46,112,89,.44);
-  background: #dcece1;
-  color: #2e7059;
+  border-color: rgba(18,125,143,.44);
+  background: #dff3f7;
+  color: #127d8f;
 }
 
 .log-card {
   margin-top: 26rpx;
-  border-top: 2rpx dashed rgba(226,207,175,.9);
+  border-top: 2rpx dashed rgba(169,194,205,.72);
   padding-top: 22rpx;
 }
 
@@ -205,8 +205,8 @@
   display: flex;
   align-items: center;
   padding: 14rpx 0;
-  border-bottom: 1rpx solid rgba(226,207,175,.68);
-  color: #817364;
+  border-bottom: 1rpx solid rgba(169,194,205,.58);
+  color: #607582;
   font-size: 23rpx;
   font-weight: 800;
 }
@@ -225,7 +225,7 @@
 .log-row text:last-child {
   width: 80rpx;
   flex: 0 0 80rpx;
-  color: #2e7059;
+  color: #127d8f;
   text-align: right;
 }
 
@@ -235,7 +235,7 @@
   height: 184rpx;
   margin: 0 auto 26rpx;
   border-radius: 36rpx;
-  box-shadow: 0 16rpx 34rpx rgba(78,51,27,.12);
+  box-shadow: 0 16rpx 34rpx rgba(21,65,86,.12);
 }
 
 .empty-title {
@@ -260,9 +260,10 @@
 
 .calendar-card {
   margin-bottom: 26rpx;
+  padding: 24rpx;
   background:
-    linear-gradient(180deg, rgba(255,253,248,.97), rgba(246,239,226,.92)),
-    radial-gradient(circle at 86% 10%, rgba(220,236,225,.78), transparent 28%);
+    linear-gradient(180deg, rgba(248,252,255,.9), rgba(232,243,248,.82)),
+    radial-gradient(circle at 86% 10%, rgba(187,225,236,.55), transparent 28%);
 }
 
 .calendar-head > view {
@@ -274,14 +275,14 @@
   width: 76rpx;
   height: 76rpx;
   border-radius: 22rpx;
-  background: rgba(255,253,248,.78);
-  color: #2b261f;
+  background: rgba(248,252,255,.72);
+  color: #162a34;
   font-size: 48rpx;
 }
 
 .calendar-head text:first-child {
   display: block;
-  color: #817364;
+  color: #607582;
   font-size: 23rpx;
   font-weight: 800;
 }
@@ -303,7 +304,7 @@
 
 .weekday-row {
   margin-bottom: 10rpx;
-  color: #817364;
+  color: #607582;
   text-align: center;
   font-size: 22rpx;
   font-weight: 800;
@@ -321,7 +322,7 @@
   box-sizing: border-box;
   border-radius: 0;
   background: transparent;
-  color: #2b261f;
+  color: #162a34;
   font-size: 24rpx;
 }
 
@@ -332,7 +333,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 18rpx;
-  background: rgba(255,253,248,.62);
+  background: rgba(248,252,255,.58);
 }
 
 .calendar-cell text {
@@ -341,19 +342,19 @@
 }
 
 .calendar-date.done .calendar-cell text:last-child {
-  color: #2e7059;
+  color: #127d8f;
 }
 
 .calendar-date.partial .calendar-cell text:last-child {
-  color: #d49a41;
+  color: #2c8fb6;
 }
 
 .calendar-date.missed .calendar-cell text:last-child {
-  color: #e78b66;
+  color: #6c7f8c;
 }
 
 .calendar-date.is-selected .calendar-cell {
-  background: linear-gradient(180deg, #2f8a66, #17563d);
+  background: linear-gradient(180deg, #19a2b5, #086578);
   color: #fff;
 }
 
@@ -365,11 +366,11 @@
   display: flex;
   justify-content: space-between;
   margin-top: 22rpx;
-  border: 2rpx solid rgba(226,207,175,.78);
+  border: 2rpx solid rgba(169,194,205,.62);
   border-radius: 24rpx;
-  background: rgba(255,253,248,.72);
+  background: rgba(248,252,255,.68);
   padding: 22rpx;
-  color: #817364;
+  color: #607582;
   font-size: 24rpx;
   font-weight: 800;
 }

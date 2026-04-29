@@ -1,9 +1,10 @@
 page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 88% 5%, rgba(255, 255, 255, 0.94), transparent 24%),
-    linear-gradient(180deg, #fff8ed 0%, #f0e3d1 70%, #e7d7bf 100%);
-  color: #2b261f;
+    radial-gradient(circle at 88% 4%, rgba(255,255,255,.92), transparent 24%),
+    radial-gradient(circle at 12% 16%, rgba(191,230,238,.52), transparent 34%),
+    linear-gradient(180deg, #f3fbfd 0%, #e6f2f6 62%, #dbe9ef 100%);
+  color: #162a34;
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
 }
 
@@ -54,10 +55,10 @@ button::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2rpx solid rgba(46, 112, 89, 0.18);
+  border: 2rpx solid rgba(18, 125, 143, 0.18);
   border-radius: 22rpx;
-  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(229,242,232,.9));
-  box-shadow: 0 16rpx 28rpx rgba(46,112,89,.12), inset 0 0 0 10rpx rgba(46,112,89,.05);
+  background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(226,244,249,.9));
+  box-shadow: 0 16rpx 28rpx rgba(21,91,116,.12), inset 0 0 0 10rpx rgba(18,125,143,.05);
 }
 
 .brand-sprout {
@@ -70,7 +71,7 @@ button::after {
 .brand-sprout::after {
   content: "";
   position: absolute;
-  border: 4rpx solid #2e7059;
+  border: 4rpx solid #127d8f;
 }
 
 .brand-sprout::before {
@@ -103,7 +104,7 @@ button::after {
 .brand-subtitle {
   display: block;
   margin-top: 4rpx;
-  color: #817364;
+  color: #607582;
   font-size: 23rpx;
 }
 
@@ -112,11 +113,11 @@ button::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2rpx solid rgba(226,207,175,.92);
+  border: 2rpx solid rgba(169,194,205,.72);
   border-radius: 22rpx;
-  background: rgba(255,249,238,.88);
-  color: #2e7059;
-  box-shadow: 0 12rpx 28rpx rgba(74,48,25,.09);
+  background: rgba(248,252,255,.88);
+  color: #127d8f;
+  box-shadow: 0 12rpx 28rpx rgba(21,65,86,.09);
 }
 
 .icon-button {
@@ -134,7 +135,7 @@ button::after {
 .reminder-icon {
   width: 24rpx;
   height: 28rpx;
-  border: 4rpx solid #2e7059;
+  border: 4rpx solid #127d8f;
   border-radius: 20rpx 20rpx 12rpx 12rpx;
   border-bottom-width: 2rpx;
 }
@@ -147,20 +148,20 @@ button::after {
 }
 
 .reminder-copy text:first-child {
-  color: #2e7059;
+  color: #127d8f;
   font-size: 24rpx;
   font-weight: 900;
 }
 
 .reminder-copy text:last-child {
   margin-top: 6rpx;
-  color: #817364;
+  color: #607582;
   font-size: 20rpx;
   font-weight: 800;
 }
 
 .section-kicker {
-  color: #817364;
+  color: #607582;
   font-size: 24rpx;
   font-weight: 800;
 }
@@ -175,10 +176,10 @@ button::after {
 }
 
 .card {
-  border: 2rpx solid rgba(226,207,175,.9);
+  border: 2rpx solid rgba(169,194,205,.72);
   border-radius: 28rpx;
-  background: linear-gradient(180deg, rgba(255,253,248,.97), rgba(255,247,235,.92));
-  box-shadow: 0 18rpx 44rpx rgba(80,52,28,.1), inset 0 2rpx 0 rgba(255,255,255,.9);
+  background: linear-gradient(180deg, rgba(248,252,255,.97), rgba(233,244,248,.92));
+  box-shadow: 0 18rpx 44rpx rgba(21,65,86,.1), inset 0 2rpx 0 rgba(255,255,255,.9);
 }
 
 .sheet-label {
@@ -186,10 +187,10 @@ button::after {
   align-items: center;
   min-height: 42rpx;
   padding: 0 18rpx;
-  border: 2rpx solid rgba(46,112,89,.2);
+  border: 2rpx solid rgba(18,125,143,.2);
   border-radius: 999rpx;
-  background: rgba(220,236,225,.92);
-  color: #2e7059;
+  background: rgba(222,244,249,.92);
+  color: #127d8f;
   font-size: 23rpx;
   font-weight: 900;
 }
@@ -207,16 +208,16 @@ button::after {
 }
 
 .primary-button {
-  background: linear-gradient(180deg, #2f8a66, #17563d);
+  background: linear-gradient(180deg, #19a2b5, #086578);
   color: #fff;
-  box-shadow: 0 16rpx 28rpx rgba(46,112,89,.23), inset 0 2rpx 0 rgba(255,255,255,.22);
+  box-shadow: 0 16rpx 28rpx rgba(18,125,143,.23), inset 0 2rpx 0 rgba(255,255,255,.22);
 }
 
 .secondary-button,
 .ghost-button {
-  border: 2rpx solid rgba(226,207,175,.9);
-  background: rgba(255,253,248,.78);
-  color: #2b261f;
+  border: 2rpx solid rgba(169,194,205,.72);
+  background: rgba(248,252,255,.78);
+  color: #162a34;
 }
 
 .button-row {
@@ -237,10 +238,10 @@ button::after {
   bottom: calc(24rpx + env(safe-area-inset-bottom));
   z-index: 20;
   display: flex;
-  border: 2rpx solid rgba(226,207,175,.88);
+  border: 2rpx solid rgba(169,194,205,.78);
   border-radius: 30rpx;
-  background: rgba(255,250,240,.92);
-  box-shadow: 0 18rpx 40rpx rgba(85,55,28,.18), inset 0 2rpx 0 rgba(255,255,255,.9);
+  background: rgba(248,252,255,.92);
+  box-shadow: 0 18rpx 40rpx rgba(21,65,86,.16), inset 0 2rpx 0 rgba(255,255,255,.9);
   padding: 10rpx;
 }
 
@@ -257,13 +258,13 @@ button::after {
   margin: 0 4rpx;
   border-radius: 22rpx;
   background: transparent;
-  color: #817364;
+  color: #607582;
   font-size: 21rpx;
   font-weight: 800;
 }
 
 .dock-item.is-active {
-  background: linear-gradient(180deg, #2f8a66, #17563d);
+  background: linear-gradient(180deg, #19a2b5, #086578);
   color: #fff;
 }
 
@@ -273,11 +274,11 @@ button::after {
 }
 
 .muted {
-  color: #817364;
+  color: #607582;
 }
 
 .microcopy {
-  color: #817364;
+  color: #607582;
   font-size: 26rpx;
   line-height: 1.65;
 }

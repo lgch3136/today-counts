@@ -13,15 +13,15 @@
   flex: 1;
   min-height: 150rpx;
   margin: 0 8rpx;
-  border: 2rpx solid rgba(226,207,175,.84);
+  border: 2rpx solid rgba(169,194,205,.7);
   border-radius: 24rpx;
-  background: rgba(255,253,248,.76);
+  background: rgba(248,252,255,.76);
   padding: 24rpx;
 }
 
 .stat-grid text:first-child {
   display: block;
-  color: #817364;
+  color: #607582;
   font-size: 24rpx;
   font-weight: 800;
 }
@@ -29,7 +29,7 @@
 .stat-grid text:last-child {
   display: block;
   margin-top: 14rpx;
-  color: #2e7059;
+  color: #127d8f;
   font-size: 44rpx;
   font-weight: 950;
 }
@@ -44,18 +44,18 @@
   justify-content: space-between;
   align-items: center;
   min-height: 92rpx;
-  border: 2rpx solid rgba(226,207,175,.84);
+  border: 2rpx solid rgba(169,194,205,.7);
   border-radius: 24rpx;
-  background: rgba(255,253,248,.76);
+  background: rgba(248,252,255,.76);
   padding: 0 24rpx;
   margin-bottom: 20rpx;
-  color: #2b261f;
+  color: #162a34;
   font-size: 28rpx;
   font-weight: 850;
 }
 
 .setting-row picker {
-  color: #2e7059;
+  color: #127d8f;
 }
 
 .danger-button {

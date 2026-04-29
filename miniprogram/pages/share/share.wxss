@@ -4,7 +4,7 @@
   overflow: hidden;
   border: 0;
   border-radius: 20rpx;
-  box-shadow: 0 28rpx 70rpx rgba(78,51,27,.18);
+  box-shadow: 0 28rpx 70rpx rgba(21,65,86,.18);
 }
 
 .share-bg,
@@ -16,7 +16,7 @@
 }
 
 .share-mask {
-  background: linear-gradient(180deg, rgba(255,249,238,.06), rgba(255,249,238,.18) 44%, rgba(255,249,238,.54));
+  background: linear-gradient(180deg, rgba(246,252,255,.02), rgba(232,246,252,.12) 44%, rgba(232,244,250,.42));
 }
 
 .poster-mark {
@@ -29,10 +29,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2rpx solid rgba(46,112,89,.18);
+  border: 2rpx solid rgba(18,125,143,.18);
   border-radius: 18rpx;
-  background: rgba(255,253,248,.62);
-  color: #2e7059;
+  background: rgba(248,252,255,.58);
+  color: #127d8f;
   font-size: 22rpx;
   font-weight: 950;
   line-height: 1.05;
@@ -41,7 +41,7 @@
 
 .poster-mark text:last-child {
   margin-top: 6rpx;
-  color: #817364;
+  color: #607582;
   font-size: 20rpx;
 }
 
@@ -58,8 +58,8 @@
 .share-head text {
   min-height: 42rpx;
   border-radius: 999rpx;
-  background: rgba(255,253,248,.72);
-  color: #2e7059;
+  background: rgba(248,252,255,.72);
+  color: #127d8f;
   padding: 0 16rpx;
   font-size: 23rpx;
   font-weight: 900;
@@ -75,7 +75,7 @@
 
 .share-kicker {
   display: block;
-  color: #2e7059;
+  color: #127d8f;
   font-size: 24rpx;
   font-weight: 950;
   margin-bottom: 18rpx;
@@ -94,7 +94,7 @@
   display: block;
   max-width: 620rpx;
   margin-top: 24rpx;
-  color: #817364;
+  color: #607582;
   font-size: 28rpx;
   line-height: 1.62;
 }
@@ -105,7 +105,7 @@
   right: 50rpx;
   bottom: 44rpx;
   display: flex;
-  border-top: 2rpx solid rgba(46,112,89,.16);
+  border-top: 2rpx solid rgba(18,125,143,.16);
   padding-top: 22rpx;
 }
 
@@ -118,7 +118,7 @@
 
 .share-stats text:first-child {
   display: block;
-  color: #817364;
+  color: #607582;
   font-size: 22rpx;
   font-weight: 800;
 }
@@ -126,7 +126,7 @@
 .share-stats text:last-child {
   display: block;
   margin-top: 12rpx;
-  color: #2e7059;
+  color: #127d8f;
   font-size: 36rpx;
   font-weight: 950;
 }
@@ -155,7 +155,7 @@
 .reflection-card text:last-child {
   display: block;
   margin-top: 18rpx;
-  color: #817364;
+  color: #607582;
   font-size: 27rpx;
   line-height: 1.7;
 }

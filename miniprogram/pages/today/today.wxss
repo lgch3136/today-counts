@@ -3,7 +3,7 @@
   min-height: 310rpx;
   overflow: hidden;
   border-radius: 28rpx;
-  box-shadow: 0 30rpx 70rpx rgba(78, 51, 27, 0.17);
+  box-shadow: 0 30rpx 70rpx rgba(21, 65, 86, 0.16);
 }
 
 .hero-bg,
@@ -15,7 +15,7 @@
 }
 
 .hero-mask {
-  background: linear-gradient(180deg, rgba(255, 251, 243, 0.08) 0%, rgba(255, 249, 238, 0.58) 58%, rgba(255, 249, 238, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(245,251,253,.02) 0%, rgba(232,245,250,.28) 58%, rgba(244,250,252,.9) 100%);
 }
 
 .date-pill {
@@ -26,8 +26,8 @@
   display: flex;
   align-items: center;
   border-radius: 999rpx;
-  background: rgba(255, 251, 243, 0.74);
-  color: #817364;
+  background: rgba(248,252,255,.78);
+  color: #607582;
   padding: 0 18rpx;
   font-size: 25rpx;
   font-weight: 800;
@@ -39,7 +39,7 @@
   height: 12rpx;
   margin-right: 12rpx;
   border-radius: 999rpx;
-  background: #2e7059;
+  background: #127d8f;
 }
 
 .streak-pill {
@@ -50,12 +50,12 @@
   align-items: center;
   gap: 6rpx;
   min-height: 76rpx;
-  border: 2rpx solid rgba(46, 112, 89, 0.2);
+  border: 2rpx solid rgba(18, 125, 143, 0.2);
   border-radius: 999rpx;
-  background: rgba(255, 249, 238, 0.78);
-  color: #2e7059;
+  background: rgba(248,252,255,.78);
+  color: #127d8f;
   padding: 0 22rpx;
-  box-shadow: 0 12rpx 28rpx rgba(85, 52, 28, 0.1);
+  box-shadow: 0 12rpx 28rpx rgba(21,65,86,.1);
   font-size: 23rpx;
   font-weight: 900;
 }
@@ -84,7 +84,7 @@
 .hero-subtitle {
   display: block;
   margin-top: 12rpx;
-  color: #6f6255;
+  color: #526a78;
   font-size: 24rpx;
   line-height: 1.45;
 }
@@ -94,10 +94,10 @@
   align-items: center;
   min-height: 106rpx;
   margin-top: 22rpx;
-  border: 2rpx solid rgba(46,112,89,.18);
+  border: 2rpx solid rgba(18,125,143,.18);
   border-radius: 28rpx;
-  background: linear-gradient(135deg, rgba(237,247,240,.96), rgba(255,253,248,.9));
-  box-shadow: 0 14rpx 34rpx rgba(46,112,89,.1), inset 0 2rpx 0 rgba(255,255,255,.9);
+  background: linear-gradient(135deg, rgba(228,247,252,.96), rgba(248,252,255,.9));
+  box-shadow: 0 14rpx 34rpx rgba(18,125,143,.1), inset 0 2rpx 0 rgba(255,255,255,.9);
   padding: 18rpx 20rpx;
 }
 
@@ -107,7 +107,7 @@
   height: 54rpx;
   flex: 0 0 54rpx;
   margin-right: 18rpx;
-  border: 3rpx solid #2e7059;
+  border: 3rpx solid #127d8f;
   border-radius: 50%;
 }
 
@@ -120,7 +120,7 @@
   width: 3rpx;
   height: 18rpx;
   border-radius: 999rpx;
-  background: #2e7059;
+  background: #127d8f;
 }
 
 .reminder-symbol::after {
@@ -136,7 +136,7 @@
 
 .reminder-main text:first-child {
   display: block;
-  color: #243d31;
+  color: #18313a;
   font-size: 28rpx;
   font-weight: 950;
 }
@@ -144,7 +144,7 @@
 .reminder-main text:last-child {
   display: block;
   margin-top: 8rpx;
-  color: #6f6255;
+  color: #607582;
   font-size: 23rpx;
   font-weight: 750;
 }
@@ -156,7 +156,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 999rpx;
-  background: #2e7059;
+  background: #127d8f;
   color: #fff;
   font-size: 24rpx;
   font-weight: 900;
@@ -178,14 +178,14 @@
   width: 94rpx;
   height: 32rpx;
   border-radius: 0 0 14rpx 14rpx;
-  background: rgba(245, 203, 124, 0.76);
+  background: rgba(87, 183, 211, 0.42);
 }
 
 .field-label {
   display: flex;
   justify-content: space-between;
   margin: 26rpx 0 14rpx;
-  color: #405045;
+  color: #243d48;
   font-size: 26rpx;
   font-weight: 850;
 }
@@ -193,10 +193,10 @@
 .goal-input {
   width: 100%;
   min-height: 154rpx;
-  border: 2rpx solid rgba(226,207,175,.95);
+  border: 2rpx solid rgba(169,194,205,.76);
   border-radius: 26rpx;
-  background: rgba(255,253,248,.96);
-  color: #2b261f;
+  background: rgba(248,252,255,.96);
+  color: #162a34;
   padding: 24rpx;
   font-size: 32rpx;
   line-height: 1.45;
@@ -212,15 +212,15 @@
   flex: 1 1 190rpx;
   min-height: 126rpx;
   margin: 0 7rpx 14rpx;
-  border: 2rpx solid rgba(226,207,175,.84);
+  border: 2rpx solid rgba(169,194,205,.7);
   border-radius: 24rpx;
-  background: rgba(255,253,248,.72);
+  background: rgba(248,252,255,.72);
   padding: 18rpx;
 }
 
 .quick-card text {
   display: block;
-  color: #2e7059;
+  color: #127d8f;
   font-size: 23rpx;
   font-weight: 900;
 }
@@ -228,7 +228,7 @@
 .quick-card input,
 .time-value {
   margin-top: 16rpx;
-  color: #817364;
+  color: #607582;
   font-size: 24rpx;
 }
 
@@ -246,16 +246,16 @@
   flex: 1;
   min-height: 140rpx;
   margin: 0 8rpx;
-  border: 2rpx solid rgba(226,207,175,.84);
+  border: 2rpx solid rgba(169,194,205,.7);
   border-radius: 24rpx;
-  background: rgba(255,253,248,.76);
+  background: rgba(248,252,255,.76);
   padding: 22rpx;
 }
 
 .summary-grid text:first-child,
 .flag-index {
   display: block;
-  color: #817364;
+  color: #607582;
   font-size: 23rpx;
   font-weight: 800;
 }
@@ -263,7 +263,7 @@
 .summary-number {
   display: block;
   margin-top: 10rpx;
-  color: #2e7059;
+  color: #127d8f;
   font-size: 46rpx;
   font-weight: 950;
 }
@@ -278,9 +278,9 @@
   justify-content: space-between;
   gap: 18rpx;
   margin-top: 14rpx;
-  border: 2rpx solid rgba(226,207,175,.84);
+  border: 2rpx solid rgba(169,194,205,.7);
   border-radius: 24rpx;
-  background: rgba(255,253,248,.76);
+  background: rgba(248,252,255,.76);
   padding: 22rpx;
 }
 
@@ -292,7 +292,7 @@
 }
 
 .flag-progress {
-  color: #2e7059;
+  color: #127d8f;
   font-size: 40rpx;
   font-weight: 950;
 }
