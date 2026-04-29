@@ -10,12 +10,15 @@
   </view>
 
   <text class="section-kicker">复盘与分享</text>
-  <text class="section-title">给今天盖个认真戳</text>
+  <text class="section-title">生成一张今日小结</text>
 
   <view class="share-card">
     <image class="share-bg" src="/assets/share-bg-v27.jpg" mode="aspectFill"></image>
     <view class="share-mask"></view>
-    <view class="stamp-mark">认真戳</view>
+    <view class="poster-mark">
+      <text>Today</text>
+      <text>counts</text>
+    </view>
     <view class="share-head">
       <text>{{todayLabel}}</text>
       <text>{{statusLabel}}</text>
@@ -42,7 +45,7 @@
   </view>
 
   <view class="share-actions">
-    <button class="primary-button" bindtap="savePoster">保存认真戳</button>
+    <button class="primary-button" bindtap="savePoster">保存今日海报</button>
     <button class="secondary-button" open-type="share">发给朋友</button>
     <button class="secondary-button" bindtap="copyText">复制文案</button>
   </view>

@@ -19,21 +19,30 @@
   background: linear-gradient(180deg, rgba(255,249,238,.08), rgba(255,249,238,.7));
 }
 
-.stamp-mark {
+.poster-mark {
   position: absolute;
   right: 38rpx;
   top: 48rpx;
   width: 154rpx;
-  height: 154rpx;
+  min-height: 92rpx;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 4rpx solid rgba(183,91,66,.72);
-  border-radius: 50%;
-  color: #9d503f;
-  font-size: 30rpx;
+  border: 2rpx solid rgba(46,112,89,.24);
+  border-radius: 26rpx;
+  background: rgba(255,253,248,.72);
+  color: #2e7059;
+  font-size: 24rpx;
   font-weight: 950;
-  transform: rotate(-9deg);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.poster-mark text:last-child {
+  margin-top: 6rpx;
+  color: #817364;
+  font-size: 20rpx;
 }
 
 .share-head {

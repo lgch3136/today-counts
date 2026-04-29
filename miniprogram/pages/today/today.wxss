@@ -1,6 +1,6 @@
 .hero-card {
   position: relative;
-  min-height: 620rpx;
+  min-height: 338rpx;
   overflow: hidden;
   border-radius: 28rpx;
   box-shadow: 0 30rpx 70rpx rgba(78, 51, 27, 0.17);
@@ -15,13 +15,13 @@
 }
 
 .hero-mask {
-  background: linear-gradient(180deg, rgba(255, 251, 243, 0.1) 0%, rgba(255, 249, 238, 0.72) 55%, rgba(255, 249, 238, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(255, 251, 243, 0.08) 0%, rgba(255, 249, 238, 0.58) 58%, rgba(255, 249, 238, 0.96) 100%);
 }
 
 .date-pill {
   position: absolute;
   left: 42rpx;
-  top: 266rpx;
+  top: 34rpx;
   min-height: 48rpx;
   display: flex;
   align-items: center;
@@ -45,7 +45,7 @@
 .streak-pill {
   position: absolute;
   right: 42rpx;
-  top: 326rpx;
+  top: 34rpx;
   display: flex;
   align-items: center;
   gap: 6rpx;
@@ -69,13 +69,13 @@
   position: absolute;
   left: 42rpx;
   right: 42rpx;
-  bottom: 46rpx;
+  bottom: 32rpx;
 }
 
 .hero-title {
   display: block;
   font-family: "Songti SC", "STSong", serif;
-  font-size: 62rpx;
+  font-size: 46rpx;
   font-weight: 900;
   line-height: 1.08;
   white-space: pre-line;
@@ -83,10 +83,10 @@
 
 .hero-subtitle {
   display: block;
-  margin-top: 18rpx;
+  margin-top: 12rpx;
   color: #6f6255;
-  font-size: 26rpx;
-  line-height: 1.65;
+  font-size: 24rpx;
+  line-height: 1.45;
 }
 
 .compose-card,
@@ -132,7 +132,7 @@
 .quick-grid {
   display: flex;
   flex-wrap: wrap;
-  margin: 24rpx -7rpx 10rpx;
+  margin: 20rpx -7rpx 0;
 }
 
 .quick-card {
@@ -161,6 +161,7 @@
 
 .wide-button {
   width: 100%;
+  margin-top: 24rpx;
 }
 
 .summary-grid {

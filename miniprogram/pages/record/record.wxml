@@ -50,7 +50,7 @@
         <button wx:if="{{item.status !== 'pending' && item.status !== 'done'}}" class="primary-button" data-id="{{item.id}}" bindtap="completeFlag">改成完成</button>
         <button wx:if="{{item.status !== 'pending' && item.status !== 'done'}}" class="secondary-button" data-id="{{item.id}}" bindtap="reopenFlag">重新推进</button>
         <button wx:if="{{item.status === 'done'}}" class="secondary-button" data-id="{{item.id}}" bindtap="reopenFlag">继续调整</button>
-        <button class="ghost-button" bindtap="goShare">去盖认真戳</button>
+        <button class="ghost-button" bindtap="goShare">生成海报</button>
       </view>
       <view wx:if="{{reasonFlagId === item.id}}" class="reason-panel">
         <text class="microcopy">选一个最接近的原因，这面 flag 就完成今天的复盘。</text>
@@ -90,12 +90,12 @@
       <text wx:for="{{weekdays}}" wx:key="*this">{{item}}</text>
     </view>
     <view class="calendar-grid">
-      <button wx:for="{{calendarDates}}" wx:key="dateKey" class="calendar-date {{item.status}} {{item.selected ? 'is-selected' : ''}} {{item.muted ? 'is-muted' : ''}}" data-date="{{item.dateKey}}" bindtap="selectDate">
+      <view wx:for="{{calendarDates}}" wx:key="dateKey" class="calendar-date {{item.status}} {{item.selected ? 'is-selected' : ''}} {{item.muted ? 'is-muted' : ''}}" data-date="{{item.dateKey}}" bindtap="selectDate">
         <view class="calendar-cell">
           <text>{{item.day}}</text>
           <text>{{item.mark}}</text>
         </view>
-      </button>
+      </view>
     </view>
     <view class="selected-date">
       <text>{{selectedDateLabel}}</text>

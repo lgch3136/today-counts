@@ -16,9 +16,13 @@ textarea {
 }
 
 button {
+  margin: 0;
   padding: 0;
+  border: 0;
+  background: transparent;
   line-height: 1.4;
   font: inherit;
+  overflow: visible;
 }
 
 button::after {
@@ -103,10 +107,8 @@ button::after {
   font-size: 23rpx;
 }
 
-.notify-button,
+.reminder-button,
 .icon-button {
-  width: 76rpx;
-  height: 76rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,12 +119,44 @@ button::after {
   box-shadow: 0 12rpx 28rpx rgba(74,48,25,.09);
 }
 
-.notify-dot {
+.icon-button {
+  width: 76rpx;
+  height: 76rpx;
+}
+
+.reminder-button {
+  min-width: 148rpx;
+  height: 72rpx;
+  gap: 12rpx;
+  padding: 0 18rpx;
+}
+
+.reminder-icon {
   width: 24rpx;
   height: 28rpx;
   border: 4rpx solid #2e7059;
   border-radius: 20rpx 20rpx 12rpx 12rpx;
   border-bottom-width: 2rpx;
+}
+
+.reminder-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+}
+
+.reminder-copy text:first-child {
+  color: #2e7059;
+  font-size: 24rpx;
+  font-weight: 900;
+}
+
+.reminder-copy text:last-child {
+  margin-top: 6rpx;
+  color: #817364;
+  font-size: 20rpx;
+  font-weight: 800;
 }
 
 .section-kicker {

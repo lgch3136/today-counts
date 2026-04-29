@@ -166,14 +166,18 @@ Page({
     ctx.font = "500 30px sans-serif";
     this.wrapText(ctx, this.data.quote, 140, 642, 700, 44, 3);
 
-    ctx.strokeStyle = "rgba(183,91,66,.72)";
-    ctx.lineWidth = 8;
-    ctx.beginPath();
-    ctx.arc(810, 276, 88, 0, Math.PI * 2);
+    this.roundRect(ctx, 738, 218, 188, 86, 24);
+    ctx.fillStyle = "rgba(255,253,248,0.72)";
+    ctx.fill();
+    ctx.strokeStyle = "rgba(46,112,89,0.24)";
+    ctx.lineWidth = 3;
     ctx.stroke();
-    ctx.fillStyle = "#9d503f";
-    ctx.font = "800 32px sans-serif";
-    ctx.fillText("认真戳", 758, 288);
+    ctx.fillStyle = "#2e7059";
+    ctx.font = "800 26px sans-serif";
+    ctx.fillText("TODAY", 780, 254);
+    ctx.fillStyle = "#817364";
+    ctx.font = "700 22px sans-serif";
+    ctx.fillText("COUNTS", 778, 284);
 
     ctx.fillStyle = "#2e7059";
     ctx.font = "800 54px sans-serif";

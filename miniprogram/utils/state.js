@@ -179,7 +179,7 @@ function buildShareQuote(flags, completionRate) {
     return "今天还没插旗，但人已经到场，也算没掉线。";
   }
   if (flags.every((flag) => flag.status === "done")) {
-    return "今日 flag 已落地，给自己盖个认真戳。";
+    return "今日 flag 已落地，留下一张清楚的小结。";
   }
   if (getFlagsProgress(flags) >= 60) {
     return "进度条已经往前拱了，别说自己没动。";

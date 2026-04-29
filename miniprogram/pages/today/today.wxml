@@ -7,8 +7,12 @@
         <text class="brand-subtitle">一个小约定 · 改变每一天</text>
       </view>
     </view>
-    <button class="notify-button" bindtap="openReminder">
-      <view class="notify-dot"></view>
+    <button class="reminder-button" bindtap="openReminder">
+      <view class="reminder-icon"></view>
+      <view class="reminder-copy">
+        <text>提醒</text>
+        <text>{{reminderTime}}</text>
+      </view>
     </button>
   </view>
 
@@ -34,6 +38,7 @@
       <text>{{goalCount}}/220</text>
     </view>
     <textarea class="goal-input" maxlength="220" value="{{goal}}" placeholder="例如：晚上前把第一版做出来" bindinput="onGoalInput"></textarea>
+    <button class="primary-button wide-button" bindtap="submitFlag">立下今日约定</button>
     <view class="quick-grid">
       <view class="quick-card">
         <text>怎么算数</text>
@@ -50,7 +55,6 @@
         </picker>
       </view>
     </view>
-    <button class="primary-button wide-button" bindtap="submitFlag">立下今日约定</button>
   </view>
 
   <view wx:else class="card status-card">
